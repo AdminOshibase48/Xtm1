@@ -212,7 +212,7 @@ body {
     transition: 0.3s;
 }
 
-/* Home Section */
+/* Home Section - REVISI UNTUK MOBILE */
 .home-section {
     padding: 120px 0 80px;
     background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
@@ -322,6 +322,7 @@ body {
     transform: translateY(-3px);
 }
 
+/* HOME IMAGE REVISI - FIX UNTUK MOBILE */
 .home-image {
     flex: 1;
     display: flex;
@@ -339,18 +340,22 @@ body {
     transform: translateX(0);
 }
 
+/* Robot utama - diperbaiki untuk mobile */
 .floating-robot {
     font-size: 10rem;
     color: rgba(255, 255, 255, 0.8);
     animation: float-robot 6s infinite ease-in-out;
     z-index: 2;
+    position: relative;
 }
 
+/* Gear animasi - diperbaiki posisinya */
 .floating-gear {
     position: absolute;
     font-size: 3rem;
     color: rgba(255, 255, 255, 0.6);
     animation: rotate 10s infinite linear;
+    z-index: 1; /* Pastikan di belakang robot */
 }
 
 .gear-1 {
@@ -373,6 +378,7 @@ body {
     animation: pulse 4s infinite ease-in-out;
     top: 50%;
     right: 10%;
+    z-index: 1; /* Pastikan di belakang robot */
 }
 
 @keyframes float-robot {
@@ -967,12 +973,17 @@ body {
     }
 }
 
-/* Responsive Styles */
+/* ==================== */
+/* RESPONSIVE STYLES - REVISI LENGKAP */
+/* ==================== */
+
+/* Tablet */
 @media (max-width: 992px) {
     .home-container,
     .about-content,
     .contact-content {
         flex-direction: column;
+        text-align: center;
     }
     
     .home-image,
@@ -988,8 +999,41 @@ body {
     .home-title {
         font-size: 3rem;
     }
+    
+    .home-image {
+        height: 300px;
+    }
+    
+    .floating-robot {
+        font-size: 8rem;
+    }
+    
+    .floating-gear {
+        font-size: 2.5rem;
+    }
+    
+    .floating-circuit {
+        font-size: 3rem;
+    }
+    
+    /* Atur ulang posisi untuk tablet */
+    .gear-1 {
+        top: 15%;
+        left: 15%;
+    }
+    
+    .gear-2 {
+        bottom: 15%;
+        right: 15%;
+    }
+    
+    .floating-circuit {
+        top: 40%;
+        right: 5%;
+    }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed;
@@ -1048,11 +1092,52 @@ body {
         margin-bottom: 1rem;
     }
     
+    /* REVISI MOBILE - Animasi Robot */
+    .home-image {
+        height: 250px;
+        margin-top: 1.5rem;
+    }
+    
     .floating-robot {
-        font-size: 7rem;
+        font-size: 6rem;
+    }
+    
+    .floating-gear {
+        font-size: 2rem;
+    }
+    
+    .floating-circuit {
+        font-size: 2.5rem;
+    }
+    
+    /* Posisi yang lebih aman untuk mobile */
+    .gear-1 {
+        top: 10%;
+        left: 10%;
+    }
+    
+    .gear-2 {
+        bottom: 10%;
+        right: 10%;
+    }
+    
+    .floating-circuit {
+        top: 35%;
+        right: 5%;
+    }
+    
+    /* Animasi yang lebih kecil untuk mobile */
+    @keyframes float-robot {
+        0%, 100% {
+            transform: translateY(0) rotate(0deg) scale(0.9);
+        }
+        50% {
+            transform: translateY(-15px) rotate(3deg) scale(0.9);
+        }
     }
 }
 
+/* Mobile Kecil */
 @media (max-width: 576px) {
     .gallery-grid,
     .members-grid,
@@ -1071,4 +1156,56 @@ body {
     .about-visual {
         grid-template-columns: 1fr;
     }
+    
+    /* REVISI MOBILE KECIL - Animasi Robot */
+    .home-image {
+        height: 200px;
+        margin-top: 1rem;
+    }
+    
+    .floating-robot {
+        font-size: 5rem;
+    }
+    
+    .floating-gear {
+        font-size: 1.5rem;
+    }
+    
+    .floating-circuit {
+        font-size: 2rem;
+    }
+    
+    /* Posisi yang sangat aman untuk mobile kecil */
+    .gear-1 {
+        top: 5%;
+        left: 5%;
+    }
+    
+    .gear-2 {
+        bottom: 5%;
+        right: 5%;
+    }
+    
+    .floating-circuit {
+        top: 30%;
+        right: 3%;
+    }
+    
+    /* Animasi yang lebih sederhana untuk mobile kecil */
+    @keyframes float-robot {
+        0%, 100% {
+            transform: translateY(0) rotate(0deg) scale(0.8);
+        }
+        50% {
+            transform: translateY(-10px) rotate(2deg) scale(0.8);
+        }
+    }
+    
+    /* Opsional: Sembunyikan elemen sekunder jika masih bertabrakan */
+    /*
+    .floating-gear,
+    .floating-circuit {
+        display: none;
+    }
+    */
 }
