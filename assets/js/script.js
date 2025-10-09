@@ -4,11 +4,9 @@
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
-        navbar.style.backgroundColor = 'rgba(26, 35, 126, 0.95)';
-        navbar.style.padding = '0.5rem 0';
+        navbar.classList.add('scrolled');
     } else {
-        navbar.style.backgroundColor = 'var(--primary-blue)';
-        navbar.style.padding = '1rem 0';
+        navbar.classList.remove('scrolled');
     }
 });
 
@@ -45,7 +43,7 @@ const observer = new IntersectionObserver(function(entries) {
 }, observerOptions);
 
 // Observe elements for scroll animations
-document.querySelectorAll('.fade-in, .slide-up').forEach(el => {
+document.querySelectorAll('.section-title, .home-content, .home-image, .about-text, .about-image, .gallery-item, .member-card, .achievement-item, .project-card, .contact-form, .contact-info').forEach(el => {
     observer.observe(el);
 });
 
@@ -96,30 +94,17 @@ if (contactForm) {
     });
 }
 
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 70,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
 // Initialize the page
 document.addEventListener('DOMContentLoaded', function() {
     // Add initial animation to home section
     const homeContent = document.querySelector('.home-content');
-    if (homeContent) {
-        homeContent.classList.add('appear');
+    const homeImage = document.querySelector('.home-image');
+    
+    if (homeContent && homeImage) {
+        setTimeout(() => {
+            homeContent.classList.add('appear');
+            homeImage.classList.add('appear');
+        }, 300);
     }
     
     console.log('Website XTM1 Mekatronika telah dimuat!');
