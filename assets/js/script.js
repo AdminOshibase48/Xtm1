@@ -47,6 +47,19 @@ document.querySelectorAll('.section-title, .home-content, .home-image, .about-te
     observer.observe(el);
 });
 
+// Tambahkan di bagian observer untuk animasi scroll
+const comingSoonObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('appear');
+        }
+    });
+}, { threshold: 0.3 });
+
+// Observasi elemen coming soon
+document.querySelectorAll('.coming-soon-container').forEach(el => {
+    comingSoonObserver.observe(el);
+});
 // Active nav link based on scroll position
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-link');
