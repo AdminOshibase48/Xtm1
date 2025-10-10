@@ -1321,3 +1321,16 @@ body {
         font-size: 1.8rem;
     }
 }
+
+/* Loading state */
+body:not(.loaded) .section-title,
+body:not(.loaded) .home-content,
+body:not(.loaded) .home-image {
+    opacity: 0;
+}
+
+body.loaded .section-title,
+body.loaded .home-content,
+body.loaded .home-image {
+    transition: opacity 0.5s ease;
+}
