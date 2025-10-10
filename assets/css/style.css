@@ -1209,3 +1209,115 @@ body {
     }
     */
 }
+
+/* Coming Soon Styles */
+.coming-soon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    background-color: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    max-width: 800px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.coming-soon-container.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.coming-soon-logos {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.coming-soon-logo {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-orange) 100%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    font-size: 2.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.coming-soon-logo:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.coming-soon-logo:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.coming-soon-logo:hover {
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.coming-soon-text {
+    text-align: center;
+}
+
+.coming-soon-text h3 {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.coming-soon-text p {
+    font-size: 1.2rem;
+    color: var(--accent-orange);
+    font-weight: 600;
+}
+
+/* Responsive Coming Soon */
+@media (max-width: 768px) {
+    .coming-soon-logos {
+        gap: 2rem;
+    }
+    
+    .coming-soon-logo {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+    
+    .coming-soon-text h3 {
+        font-size: 2rem;
+    }
+    
+    .coming-soon-text p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .coming-soon-logos {
+        gap: 1.5rem;
+    }
+    
+    .coming-soon-logo {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+    }
+    
+    .coming-soon-text h3 {
+        font-size: 1.8rem;
+    }
+}
