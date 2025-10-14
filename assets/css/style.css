@@ -1296,125 +1296,157 @@ body.loaded .home-image {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #1a2a6c, #2a3a7c, #3a4a8c);
-    color: white;
+    background-color: #f5f5f5;
+    color: #333;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    line-height: 1.6;
 }
 
 .container {
-    max-width: 600px;
+    max-width: 800px;
     width: 100%;
-    text-align: center;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 header {
-    margin-bottom: 40px;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    padding: 40px 30px;
+    text-align: center;
 }
 
 header h1 {
     font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 5px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    letter-spacing: 2px;
 }
 
-header h2 {
-    font-size: 2rem;
+.subtitle h2 {
+    font-size: 1.8rem;
     font-weight: 600;
-    margin-bottom: 10px;
-    color: #4fc3f7;
+    margin-bottom: 15px;
+    color: #ecf0f1;
 }
 
-.tagline {
+.tagline p {
     font-size: 1.2rem;
-    font-weight: 300;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+}
+
+.content {
+    padding: 40px 30px;
+}
+
+.description {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.divider {
+    height: 2px;
+    background: linear-gradient(to right, transparent, #bdc3c7, transparent);
+    margin: 30px 0;
+}
+
+.redirect-section h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2c3e50;
 }
 
 .redirect-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 25px;
+    border-left: 4px solid #3498db;
+    margin-bottom: 20px;
 }
 
-.redirect-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+.redirect-question {
+    font-size: 1.3rem;
     font-weight: 500;
+    margin-bottom: 10px;
+    color: #2c3e50;
 }
 
-.redirect-card p {
-    margin-bottom: 25px;
+.redirect-info {
     font-size: 1rem;
-    opacity: 0.9;
+    margin-bottom: 20px;
+    color: #7f8c8d;
 }
 
 .redirect-btn {
     display: inline-block;
-    background: linear-gradient(to right, #4fc3f7, #29b6f6);
+    background: #3498db;
     color: white;
     text-decoration: none;
-    padding: 12px 35px;
-    border-radius: 50px;
+    padding: 12px 30px;
+    border-radius: 5px;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1rem;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(41, 182, 246, 0.4);
+    border: none;
+    cursor: pointer;
 }
 
 .redirect-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(41, 182, 246, 0.6);
-    background: linear-gradient(to right, #29b6f6, #039be5);
-}
-
-.description {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 30px;
-    font-style: italic;
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
 }
 
 footer {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: #ecf0f1;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #bdc3c7;
 }
 
-.partnership {
-    font-weight: 500;
+.partnership p {
+    font-weight: 600;
+    color: #7f8c8d;
     letter-spacing: 1px;
 }
 
 /* Responsive design */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    header {
+        padding: 30px 20px;
+    }
+    
     header h1 {
         font-size: 2.8rem;
     }
     
-    header h2 {
-        font-size: 1.7rem;
+    .subtitle h2 {
+        font-size: 1.5rem;
+    }
+    
+    .content {
+        padding: 30px 20px;
     }
     
     .redirect-card {
         padding: 20px;
     }
     
-    .redirect-card h3 {
-        font-size: 1.3rem;
+    .redirect-question {
+        font-size: 1.1rem;
     }
 }
