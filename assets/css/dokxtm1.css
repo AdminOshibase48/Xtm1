@@ -1085,7 +1085,7 @@ body {
     }
 }
 
-* Music & Theme Controls */
+/* Music & Theme Controls */
 .music-control, .theme-toggle {
     position: fixed;
     z-index: 999;
