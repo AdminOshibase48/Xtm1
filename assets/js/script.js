@@ -666,3 +666,18 @@ window.addEventListener('unhandledrejection', function(e) {
     console.log('⚠️ Promise rejection ditangkap:', e.reason);
     e.preventDefault();
 });
+
+function initMusicControl() {
+    const musicToggle = document.getElementById('musicToggle');
+    const bgMusic = document.getElementById('bgMusic');
+    
+    // Nonaktifkan musik sepenuhnya
+    if (musicToggle) {
+        musicToggle.style.display = 'none';
+    }
+    if (bgMusic) {
+        bgMusic.remove();
+    }
+    
+    console.log('🔇 Musik dinonaktifkan untuk menghindari error browser');
+}
