@@ -3,15 +3,15 @@ const membersData = [
     { id: 1, name: "Drs. Nurhayat Arif, MK", role: "Wali Kelas", avatar: "NA" },
     { id: 2, name: "Lutfi", role: "Ketua Kelas", avatar: "LF" },
     { id: 3, name: "Cika", role: "Wakil Ketua", avatar: "CK" },
-    { id: 4, name: "Mutiya", role: "Bendahara", avatar: "MT" },
-    { id: 5, name: "Fitra", role: "Sekretaris", avatar: "FT" },
-    { id: 6, name: "Redzuan", role: "S. Keamanan", avatar: "RZ" },
-    { id: 7, name: "Ahmad Rizki", role: "Ketua Kelas", avatar: "AR" },
-    { id: 8, name: "Siti Nurhaliza", role: "Wakil Ketua", avatar: "SN" },
-    { id: 9, name: "Budi Santoso", role: "Sekretaris", avatar: "BS" },
-    { id: 10, name: "Dewi Lestari", role: "Bendahara", avatar: "DL" },
-    { id: 11, name: "Fajar Pratama", role: "Koordinator Proyek", avatar: "FP" },
-    { id: 12, name: "Maya Sari", role: "Desainer", avatar: "MS" }
+    { id: 4, name: "Khanza", role: "Bendahara 1", avatar: "MT" },
+    { id: 5, name: "Mutiya", role: "Bendahara 2", avatar: "FT" },
+    { id: 6, name: "Putri", role: "S.Olahraga", avatar: "RZ" },
+    { id: 7, name: "Tia", role: "Sekretaris 1", avatar: "AR" },
+    { id: 8, name: "Fitra", role: "Sekretaris 2", avatar: "SN" },
+    { id: 9, name: "Andika", role: "S.Peralatan", avatar: "BS" },
+    { id: 10, name: "Farel", role: "S.Kerohanian", avatar: "DL" },
+    { id: 11, name: "Redzuan", role: "S.Keamanan", avatar: "FP" },
+    { id: 12, name: "Nursyam", role: "Web Developer", avatar: "MS" }
 ];
 
 // Data dummy untuk feed kelas
