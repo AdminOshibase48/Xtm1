@@ -427,5 +427,5 @@ console.log(`
 👨 Laki-laki: 28
 👩 Perempuan: 13
 🎯 Fitur: Search, Filter, Animasi
-🚀 Powered by XTM1 Space
+🚀 Powered by Web Developer XTM1
 `);
