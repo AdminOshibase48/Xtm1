@@ -5,23 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anggota Kelas XTM1</title>
     <link rel="stylesheet" href="assets/css/anggota.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="dark-mode">
     <!-- Background Elements -->
     <div class="bg-elements">
         <div class="bg-circle circle-1"></div>
         <div class="bg-circle circle-2"></div>
         <div class="bg-circle circle-3"></div>
         <div class="bg-circle circle-4"></div>
+        <div class="stars"></div>
+        <div class="stars stars-2"></div>
+    </div>
+
+    <!-- Music Control -->
+    <div class="music-control">
+        <button id="musicToggle" class="music-btn">
+            <i class="fas fa-music"></i>
+        </button>
+        <audio id="bgMusic" loop preload="none">
+            <source src="assets/audio/background-music.mp3" type="audio/mpeg">
+            <source src="assets/audio/background-music.ogg" type="audio/ogg">
+        </audio>
+    </div>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+        <button id="themeToggle" class="theme-btn">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <!-- Robot Maskot -->
+    <div class="robot-container">
+        <div class="robot" id="robot">
+            <div class="robot-head">
+                <div class="robot-eye left-eye"></div>
+                <div class="robot-eye right-eye"></div>
+                <div class="robot-mouth"></div>
+            </div>
+            <div class="robot-body">
+                <div class="robot-panel"></div>
+            </div>
+        </div>
+        <div class="robot-speech-bubble" id="robotSpeech">
+            Halo! Ini daftar anggota XTM1!
+        </div>
     </div>
 
     <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <h2>XTM<span class="logo-highlight">1</span></h2>
+                <h2>XTM<span class="logo-highlight">1</span> SPACE</h2>
             </div>
             <div class="nav-menu" id="navMenu">
                 <a href="index.html" class="nav-link">Beranda</a>
@@ -41,280 +78,441 @@
     <!-- Members Section -->
     <section class="members-section">
         <div class="container">
-            <div class="members-header">
-                <h1>XTM<span class="logo-highlight">1</span></h1>
+            <div class="members-header fade-in">
+                <h1>XTM<span class="logo-highlight">1</span> SPACE</h1>
                 <h2>Mekatronika</h2>
                 <p class="tagline">Teknologi, Kreativitas, dan Solidaritas</p>
             </div>
 
-            <div class="section-title">
+            <div class="section-title fade-in">
                 <h2>Anggota <span class="logo-highlight">Kelas</span></h2>
                 <p>41 Siswa Keluarga Besar XTM1</p>
             </div>
 
+            <!-- Search and Filter -->
+            <div class="search-filter-container fade-in">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Cari nama anggota...">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Semua</button>
+                    <button class="filter-btn" data-filter="male">Laki-laki</button>
+                    <button class="filter-btn" data-filter="female">Perempuan</button>
+                </div>
+            </div>
+
             <!-- Daftar Semua Anggota -->
             <div class="all-members-container">
-                <div class="members-grid">
+                <div class="members-grid" id="membersGrid">
                     <!-- Anggota 1-20 -->
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">1</span>
                         </div>
                         <h3 class="member-name">AFGAN LUTFI RAHMAN</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">2</span>
                         </div>
                         <h3 class="member-name">AHMAD FAREL HERLAMBANG</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">3</span>
                         </div>
                         <h3 class="member-name">ANDHIKA PUTRA PRATAMA</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">4</span>
                         </div>
                         <h3 class="member-name">ANDIERA LAZUAR ILYASA</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="female">
                         <div class="member-avatar">
                             <span class="avatar-number">5</span>
                         </div>
                         <h3 class="member-name">APRILIA PUTRI</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-venus"></i> Perempuan</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">6</span>
                         </div>
                         <h3 class="member-name">ARYA SIGIT BAHTIAR</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="female">
                         <div class="member-avatar">
                             <span class="avatar-number">7</span>
                         </div>
                         <h3 class="member-name">ASKA PUTRI FIKKHANZA</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-venus"></i> Perempuan</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="female">
                         <div class="member-avatar">
                             <span class="avatar-number">8</span>
                         </div>
                         <h3 class="member-name">AULIA RAHMA DANI</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-venus"></i> Perempuan</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">9</span>
                         </div>
                         <h3 class="member-name">AZ DZIKRA FADLI RAMADHAN</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">10</span>
                         </div>
                         <h3 class="member-name">AZZAM ASHJEF BARKHIYA</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">11</span>
                         </div>
                         <h3 class="member-name">BIRROYYAN NADKHAL FIRDAUS</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="female">
                         <div class="member-avatar">
                             <span class="avatar-number">12</span>
                         </div>
                         <h3 class="member-name">CIKA YUNITA</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-venus"></i> Perempuan</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">13</span>
                         </div>
                         <h3 class="member-name">DANENDRA AZKA RATMAJA</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">14</span>
                         </div>
                         <h3 class="member-name">FARROS ADE CANDRA</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">15</span>
                         </div>
                         <h3 class="member-name">FATHIR KHOIRUL GIBRAN</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="female">
                         <div class="member-avatar">
                             <span class="avatar-number">16</span>
                         </div>
                         <h3 class="member-name">FITRA ISNAINI</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-venus"></i> Perempuan</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">17</span>
                         </div>
                         <h3 class="member-name">GHANI FAHRURROZI</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="female">
                         <div class="member-avatar">
                             <span class="avatar-number">18</span>
                         </div>
                         <h3 class="member-name">ISNA AULIYA SYARIFAH</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-venus"></i> Perempuan</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">19</span>
                         </div>
                         <h3 class="member-name">KRISHNA SATRYO ADRIAN PUTRA</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">20</span>
                         </div>
                         <h3 class="member-name">LEVIO HANIFQA NURSIFIQ</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
                     <!-- Anggota 21-41 -->
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">21</span>
                         </div>
                         <h3 class="member-name">MUHAMAD LUTFI</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">22</span>
                         </div>
                         <h3 class="member-name">MUHAMAD REDZUAN HARDIANTO</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">23</span>
                         </div>
                         <h3 class="member-name">MUHAMMAD ANDIKA</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">24</span>
                         </div>
                         <h3 class="member-name">MUHAMMAD ANINDYA NURSYAM</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">25</span>
                         </div>
                         <h3 class="member-name">MUHAMMAD FAISHAL NUR FADIL</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="female">
                         <div class="member-avatar">
                             <span class="avatar-number">26</span>
                         </div>
                         <h3 class="member-name">MUTIYA PUTRI HABIBAH</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-venus"></i> Perempuan</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">27</span>
                         </div>
                         <h3 class="member-name">NABIL FARRAS MURTADHO</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="female">
                         <div class="member-avatar">
                             <span class="avatar-number">28</span>
                         </div>
                         <h3 class="member-name">NAURA INDAH</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-venus"></i> Perempuan</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="female">
                         <div class="member-avatar">
                             <span class="avatar-number">29</span>
                         </div>
                         <h3 class="member-name">NOVA AYU ALMAIDA</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-venus"></i> Perempuan</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">30</span>
                         </div>
                         <h3 class="member-name">NUGRAHA OKTA TANJUNG</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="female">
                         <div class="member-avatar">
                             <span class="avatar-number">31</span>
                         </div>
                         <h3 class="member-name">PUTRI NABILA RAMADANI</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-venus"></i> Perempuan</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="female">
                         <div class="member-avatar">
                             <span class="avatar-number">32</span>
                         </div>
                         <h3 class="member-name">QIRANA APRISTI</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-venus"></i> Perempuan</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">33</span>
                         </div>
                         <h3 class="member-name">RAEFAN ILHAM KURNIAWAN</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">34</span>
                         </div>
                         <h3 class="member-name">RAFAEL AZKA PRANATA</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">35</span>
                         </div>
                         <h3 class="member-name">RAFKA ZIDAN AL-PAZRI</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">36</span>
                         </div>
                         <h3 class="member-name">REZKY NAUFAL WIBOWO</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="female">
                         <div class="member-avatar">
                             <span class="avatar-number">37</span>
                         </div>
                         <h3 class="member-name">RISKA ELVIRA KHAIRUNNISA</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-venus"></i> Perempuan</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">38</span>
                         </div>
                         <h3 class="member-name">SAYID DZAKWAN KAMIL</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="female">
                         <div class="member-avatar">
                             <span class="avatar-number">39</span>
                         </div>
                         <h3 class="member-name">TIA LESTARI</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-venus"></i> Perempuan</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="male">
                         <div class="member-avatar">
                             <span class="avatar-number">40</span>
                         </div>
                         <h3 class="member-name">ZAFIRO ACERAL RINALDI</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-mars"></i> Laki-laki</span>
+                        </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card" data-gender="female">
                         <div class="member-avatar">
                             <span class="avatar-number">41</span>
                         </div>
                         <h3 class="member-name">ZESILYA REZKY PERMANA</h3>
+                        <div class="member-details">
+                            <span class="member-gender"><i class="fas fa-venus"></i> Perempuan</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="total-counter">
-                <div class="counter-box">
-                    <h3>Total Anggota</h3>
-                    <div class="counter-number">41</div>
-                    <p>Siswa X TM 1</p>
+            <!-- Statistics -->
+            <div class="statistics-container fade-in">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="stat-number" id="totalMembers">41</h3>
+                            <p class="stat-label">Total Anggota</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-mars"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="stat-number" id="maleCount">28</h3>
+                            <p class="stat-label">Laki-laki</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-venus"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="stat-number" id="femaleCount">13</h3>
+                            <p class="stat-label">Perempuan</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="class-info">
+            <div class="class-info fade-in">
                 <p>Kelas Mekatronika SMK yang berfokus pada inovasi teknologi dan pengembangan keterampilan di bidang automasi industri.</p>
             </div>
         </div>
@@ -325,7 +523,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <h2>XTM<span class="logo-highlight">1</span></h2>
+                    <h2>XTM<span class="logo-highlight">1</span> SPACE</h2>
                     <p>Teknologi, Kreativitas, dan Solidaritas</p>
                 </div>
                 <div class="footer-links">
@@ -354,4 +552,4 @@
 
     <script src="assets/js/anggota.js"></script>
 </body>
-                                                                          </html>
+</html>
