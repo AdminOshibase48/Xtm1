@@ -33,6 +33,59 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('theme', 'dark');
         }
     });
+
+    // ========== MUSIC CONTROL - FIXED VERSION ==========
+    const musicToggle = document.getElementById('musicToggle');
+    const bgMusic = document.getElementById('bgMusic');
+    
+    if (musicToggle && bgMusic) {
+        const musicIcon = musicToggle.querySelector('i');
+        let isPlaying = false;
+        
+        // Setup music
+        bgMusic.volume = 0.3;
+        bgMusic.preload = 'metadata';
+        
+        function toggleMusic() {
+            if (isPlaying) {
+                // Pause music
+                bgMusic.pause();
+                isPlaying = false;
+                musicIcon.className = 'fas fa-music';
+                musicToggle.classList.remove('playing');
+            } else {
+                // Play music dengan error handling
+                const playPromise = bgMusic.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise
+                        .then(() => {
+                            isPlaying = true;
+                            musicIcon.className = 'fas fa-volume-up';
+                            musicToggle.classList.add('playing');
+                        })
+                        .catch(error => {
+                            console.log('Music play failed:', error);
+                            isPlaying = false;
+                            musicIcon.className = 'fas fa-music';
+                        });
+                }
+            }
+        }
+        
+        musicToggle.addEventListener('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            toggleMusic();
+        });
+        
+        // Pause music ketika tab tidak aktif
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden && isPlaying) {
+                bgMusic.pause();
+            }
+        });
+    }
     
     // Add animation delays for staggered animations
     const animatedElements = document.querySelectorAll('.fade-in, .slide-up');
@@ -110,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(`
     🚀 Selamat datang di XTM1 DOCS!
     📁 Dokumentasi Kelas Mekatronika
-    👥 30+ Anggota | 📚 200+ File
-    🔗 drive.google.com/drive/folders/YOUR_DRIVE_LINK_HERE
+    👥 41 Anggota | 📚 50+ File
+    🔗 https://drive.google.com/drive/folders/1H9WEJEbN4BnxZk5dZsv4M55DpKDg-rKj
     `);
 });
