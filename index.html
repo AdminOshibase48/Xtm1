@@ -3,34 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XTM1 - Kelas Mekatronika SMK</title>
+    <title>XTM1 Space - Dunia Teknologi & Kreativitas Kami</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="dark-mode">
     <!-- Background Elements -->
     <div class="bg-elements">
         <div class="bg-circle circle-1"></div>
         <div class="bg-circle circle-2"></div>
         <div class="bg-circle circle-3"></div>
         <div class="bg-circle circle-4"></div>
+        <div class="stars"></div>
+        <div class="stars stars-2"></div>
+    </div>
+
+    <!-- Music Control -->
+    <div class="music-control">
+        <button id="musicToggle" class="music-btn">
+            <i class="fas fa-music"></i>
+        </button>
+        <audio id="bgMusic" loop>
+            <source src="assets/audio/background-music.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+        <button id="themeToggle" class="theme-btn">
+            <i class="fas fa-moon"></i>
+        </button>
     </div>
 
     <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <h2>XTM<span class="logo-highlight">1</span></h2>
+                <h2>XTM<span class="logo-highlight">1</span> SPACE</h2>
             </div>
             <div class="nav-menu" id="navMenu">
-                <a href="#home" class="nav-link active">Beranda</a>
+                <a href="#home" class="nav-link">Beranda</a>
                 <a href="#about" class="nav-link">Tentang</a>
-                <a href="#gallery" class="nav-link">Galeri</a>
-                <a href="anggota" class="nav-link">Anggota</a>
-                <a href="#achievement" class="nav-link">Prestasi</a>
-                <a href="#projects" class="nav-link">Proyek</a>
-                <a href="#contact" class="nav-link">Kontak</a>
+                <a href="#members" class="nav-link">Anggota</a>
+                <a href="#gallery" class="nav-link">Galeri 3D</a>
+                <a href="#feed" class="nav-link">Feed Kelas</a>
+                <a href="#games" class="nav-link">Game</a>
             </div>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
@@ -40,274 +58,261 @@
         </div>
     </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="home-section">
-        <div class="home-container">
-            <div class="home-content">
-                <h1 class="home-title">XTM<span class="logo-highlight">1</span> Mekatronika</h1>
-                <h2 class="home-subtitle">Teknologi, Kreativitas, dan Solidaritas</h2>
-                <p class="home-description">Kelas Mekatronika SMK yang berfokus pada inovasi teknologi dan pengembangan keterampilan di bidang otomasi industri.</p>
-                <a href="#about" class="cta-button">Kenali Kami</a>
+    <!-- Robot Maskot -->
+    <div class="robot-container">
+        <div class="robot" id="robot">
+            <div class="robot-head">
+                <div class="robot-eye left-eye"></div>
+                <div class="robot-eye right-eye"></div>
+                <div class="robot-mouth"></div>
             </div>
-            <div class="home-image">
-                <div class="floating-robot">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <div class="floating-gear gear-1">
-                    <i class="fas fa-cog"></i>
-                </div>
-                <div class="floating-gear gear-2">
-                    <i class="fas fa-cog"></i>
-                </div>
-                <div class="floating-circuit">
-                    <i class="fas fa-microchip"></i>
-                </div>
+            <div class="robot-body">
+                <div class="robot-panel"></div>
             </div>
         </div>
-    </section>
+        <div class="robot-speech-bubble" id="robotSpeech">
+            Halo! Selamat datang di XTM1 Space!
+        </div>
+    </div>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <h2 class="section-title">Tentang Kelas <span class="logo-highlight">XTM1</span></h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Profil Kelas XTM1</h3>
-                    <p>Kelas XTM1 adalah kelas jurusan Mekatronika di SMK Texar Karawang. Kami terdiri dari 41 siswa yang memiliki minat tinggi dalam bidang teknologi, robotika, dan otomasi industri.</p>
-                    
-                    <h3>Sejarah Jurusan Mekatronika</h3>
-                    <p>Jurusan Mekatronika di SMK Texar Karawang didirikan pada tahun 2020 sebagai respons terhadap kebutuhan industri 4.0. Jurusan ini menggabungkan ilmu mekanika, elektronika, dan informatika untuk menciptakan sistem otomasi yang canggih.</p>
-                    
-                    <h3>Kegiatan Belajar</h3>
-                    <p>Kami belajar berbagai mata pelajaran seperti Pemrograman Mikrokontroler, Sistem Kendali, Robotika, Pneumatik & Hidrolik, serta CAD/CAM untuk merancang sistem mekatronika yang inovatif.</p>
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section home-section">
+            <div class="container">
+                <div class="home-content">
+                    <div class="home-text">
+                        <h1 class="fade-in">XTM<span class="logo-highlight">1</span> SPACE</h1>
+                        <h2 class="slide-up">Dunia Teknologi & Kreativitas Kami</h2>
+                        <p class="tagline fade-in">Mekatronika SMK Texar Karawang</p>
+                        <div class="cta-buttons">
+                            <a href="#about" class="glow-btn slide-up">Jelajahi XTM1</a>
+                            <a href="#members" class="glow-btn secondary slide-up">Kenali Anggota</a>
+                        </div>
+                    </div>
+                    <div class="home-visual">
+                        <div class="floating-elements">
+                            <div class="floating-element element-1">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="floating-element element-2">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <div class="floating-element element-3">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="about-image">
-                    <div class="about-visual">
-                        <div class="visual-item">
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <h2 class="section-title fade-in">Tentang XTM1</h2>
+                <div class="about-content">
+                    <div class="about-text slide-up">
+                        <p>Kelas Mekatronika SMK yang berfokus pada inovasi teknologi dan pengembangan keterampilan di bidang automasi industri.</p>
+                        <p>Kami menggabungkan teknologi, kreativitas, dan solidaritas untuk menciptakan solusi inovatif di dunia industri 4.0.</p>
+                        <div class="stats">
+                            <div class="stat">
+                                <h3>30+</h3>
+                                <p>Anggota</p>
+                            </div>
+                            <div class="stat">
+                                <h3>15+</h3>
+                                <p>Proyek</p>
+                            </div>
+                            <div class="stat">
+                                <h3>5</h3>
+                                <p>Penghargaan</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-visual slide-up">
+                        <div class="tech-icons">
+                            <i class="fab fa-raspberry-pi"></i>
                             <i class="fas fa-robot"></i>
-                            <span>Robotika</span>
-                        </div>
-                        <div class="visual-item">
-                            <i class="fas fa-microchip"></i>
-                            <span>Elektronika</span>
-                        </div>
-                        <div class="visual-item">
-                            <i class="fas fa-cogs"></i>
-                            <span>Mekanik</span>
-                        </div>
-                        <div class="visual-item">
                             <i class="fas fa-code"></i>
-                            <span>Pemrograman</span>
+                            <i class="fas fa-industry"></i>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery-section">
-        <div class="container">
-            <h2 class="section-title">Galeri <span class="logo-highlight">Kegiatan</span></h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <i class="fas fa-microchip"></i>
+        <!-- Members Section -->
+        <section id="members" class="section members-section">
+            <div class="container">
+                <h2 class="section-title fade-in">Anggota Kelas</h2>
+                <div class="members-grid">
+                    <!-- Struktur Kelas XTM1 -->
+                    <div class="member-card">
+                        <div class="member-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Drs. Nurhayat Arif, MK</h3>
+                        <p>Wali Kelas</p>
                     </div>
-                    <div class="gallery-caption">Praktikum Elektronika</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <i class="fas fa-robot"></i>
+                    
+                    <div class="member-card">
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Lutfi</h3>
+                        <p>Ketua Kelas</p>
                     </div>
-                    <div class="gallery-caption">Workshop Robotika</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <i class="fas fa-tools"></i>
+                    
+                    <div class="member-card">
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Cika</h3>
+                        <p>Wakil Ketua</p>
                     </div>
-                    <div class="gallery-caption">Praktikum Mekanik</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <i class="fas fa-laptop-code"></i>
+                    
+                    <div class="member-card">
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Mutiya</h3>
+                        <p>Bendahara</p>
                     </div>
-                    <div class="gallery-caption">Pemrograman Arduino</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <i class="fas fa-users"></i>
+                    
+                    <div class="member-card">
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Fitra</h3>
+                        <p>Sekretaris</p>
                     </div>
-                    <div class="gallery-caption">Kerja Kelompok</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <i class="fas fa-trophy"></i>
+                    
+                    <div class="member-card">
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Redzuan</h3>
+                        <p>S. Keamanan</p>
                     </div>
-                    <div class="gallery-caption">Kompetisi Teknologi</div>
+                    
+                    <!-- Struktur Tambahan -->
+                    <div class="member-card">
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Ahmad Rizki</h3>
+                        <p>Ketua Kelas</p>
+                    </div>
+                    
+                    <div class="member-card">
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Siti Nurhaliza</h3>
+                        <p>Wakil Ketua</p>
+                    </div>
+                    
+                    <div class="member-card">
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Budi Santoso</h3>
+                        <p>Sekretaris</p>
+                    </div>
+                    
+                    <div class="member-card">
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Dewi Lestari</h3>
+                        <p>Bendahara</p>
+                    </div>
+                    
+                    <div class="member-card">
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Fajar Pratama</h3>
+                        <p>Koordinator Proyek</p>
+                    </div>
+                    
+                    <div class="member-card">
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Maya Sari</h3>
+                        <p>Desainer</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Members Section -->
-    <section id="members" class="members-section">
-        <div class="container">
-            <h2 class="section-title">Struktur <span class="logo-highlight">Kelas</span></h2>
-            <div class="members-grid">
-                <div class="member-card">
-                    <div class="member-photo">
-                        <i class="fas fa-user"></i>
+        <!-- Gallery Section -->
+        <section id="gallery" class="section gallery-section">
+            <div class="container">
+                <h2 class="section-title fade-in">Galeri 3D</h2>
+                <div class="gallery-container">
+                    <div class="gallery-item">
+                        <div class="gallery-card">
+                            <div class="card-front">
+                                <img src="assets/images/project1.jpg" alt="Proyek 1">
+                                <h3>Robot Pemilah Barang</h3>
+                            </div>
+                            <div class="card-back">
+                                <h3>Robot Pemilah Barang</h3>
+                                <p>Robot otomatis untuk memilah barang berdasarkan warna dan ukuran.</p>
+                                <button class="glow-btn small">Lihat Detail</button>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="member-name">Drs.Nurhayat Arif, MK</h3>
-                    <p class="member-position">Wali Kelas</p>
-                </div>
-                <div class="member-card">
-                    <div class="member-photo">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h3 class="member-name">Lutfi</h3>
-                    <p class="member-position">Ketua Kelas</p>
-                </div>
-                <div class="member-card">
-                    <div class="member-photo">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h3 class="member-name">Cika</h3>
-                    <p class="member-position">Wakil Ketua</p>
-                </div>
-                <div class="member-card">
-                    <div class="member-photo">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h3 class="member-name">Mutiya</h3>
-                    <p class="member-position">Bendahara</p>
-                </div>
-                <div class="member-card">
-                    <div class="member-photo">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h3 class="member-name">Fitra</h3>
-                    <p class="member-position">Sekretaris </p>
-                </div>
-                <div class="member-card">
-                    <div class="member-photo">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h3 class="member-name">Redzuan</h3>
-                    <p class="member-position">S. Keamanan</p>
+                    <!-- Item galeri lainnya -->
                 </div>
             </div>
-            <div class="view-all">
-                <button class="secondary-button">Lihat Semua Anggota</button>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Achievement Section - DIUBAH -->
-    <section id="achievement" class="achievement-section">
-        <div class="container">
-            <h2 class="section-title">Prestasi <span class="logo-highlight">Kelas</span></h2>
-            <div class="coming-soon-container">
-                <div class="coming-soon-logos">
-                    <div class="coming-soon-logo">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <div class="coming-soon-logo">
-                        <i class="fas fa-medal"></i>
-                    </div>
-                    <div class="coming-soon-logo">
-                        <i class="fas fa-award"></i>
-                    </div>
-                </div>
-                <div class="coming-soon-text">
-                    <h3>Coming Soon</h3>
-                    <p>Sabar yaa, baru kelas 10</p>
+        <!-- Feed Section -->
+        <section id="feed" class="section feed-section">
+            <div class="container">
+                <h2 class="section-title fade-in">Feed Kelas</h2>
+                <div class="feed-container">
+                    <!-- Feed akan di-generate oleh JavaScript -->
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects Section - DIUBAH -->
-    <section id="projects" class="projects-section">
-        <div class="container">
-            <h2 class="section-title">Proyek <span class="logo-highlight">Mekatronika</span></h2>
-            <div class="coming-soon-container">
-                <div class="coming-soon-logos">
-                    <div class="coming-soon-logo">
-                        <i class="fas fa-robot"></i>
+        <!-- Games Section -->
+        <section id="games" class="section games-section">
+            <div class="container">
+                <h2 class="section-title fade-in">Game & Quiz</h2>
+                <div class="games-container">
+                    <div class="game-card">
+                        <div class="game-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3>Quiz Mekatronika</h3>
+                        <p>Uji pengetahuanmu tentang mekatronika dengan quiz seru ini!</p>
+                        <button class="glow-btn" id="startQuiz">Mulai Quiz</button>
                     </div>
-                    <div class="coming-soon-logo">
-                        <i class="fas fa-industry"></i>
-                    </div>
-                    <div class="coming-soon-logo">
-                        <i class="fas fa-home"></i>
-                    </div>
-                </div>
-                <div class="coming-soon-text">
-                    <h3>Coming Soon</h3>
-                    <p>Sabar yaa, baru kelas 10</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title">Hubungi <span class="logo-highlight">Kami</span></h2>
-            <div class="contact-content">
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Nama</label>
-                            <input type="text" id="name" name="name" required>
+                    <div class="game-card">
+                        <div class="game-icon">
+                            <i class="fas fa-robot"></i>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Pesan</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="cta-button">Kirim Pesan</button>
-                    </form>
-                </div>
-                <div class="contact-info">
-                    <h3>Informasi Kontak</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-school"></i>
-                        <div>
-                            <h4>SMK Texar Karawang</h4>
-                            <p>Jl. Pendidikan No. 123, Karawang</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>xtm1.mekatronika@smktexar.sch.id</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-instagram"></i>
-                        <div>
-                            <h4>Instagram</h4>
-                            <p>@xtm1_mekatronika</p>
-                        </div>
+                        <h3>Robot Memory</h3>
+                        <p>Game memori dengan tema robot dan komponen mekatronika.</p>
+                        <button class="glow-btn" id="startMemory">Mainkan</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <h2>XTM<span class="logo-highlight">1</span></h2>
+                    <h2>XTM<span class="logo-highlight">1</span> SPACE</h2>
                     <p>Teknologi, Kreativitas, dan Solidaritas</p>
                 </div>
                 <div class="footer-links">
@@ -315,8 +320,8 @@
                     <ul>
                         <li><a href="#home">Beranda</a></li>
                         <li><a href="#about">Tentang</a></li>
-                        <li><a href="#gallery">Galeri</a></li>
                         <li><a href="#members">Anggota</a></li>
+                        <li><a href="#gallery">Galeri</a></li>
                     </ul>
                 </div>
                 <div class="footer-social">
@@ -334,6 +339,16 @@
         </div>
     </footer>
 
+    <!-- Modal untuk Quiz -->
+    <div id="quizModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="quizContainer">
+                <!-- Konten quiz akan di-generate oleh JavaScript -->
+            </div>
+        </div>
+    </div>
+
     <script src="assets/js/script.js"></script>
 </body>
-</html>
+                </html>
