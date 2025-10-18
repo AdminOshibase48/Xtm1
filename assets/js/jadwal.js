@@ -419,5 +419,5 @@ console.log(`
 🗓️ Kamis: 4 Pelajaran (8 Jam)
 🗓️ Jumat: 2 Pelajaran (5 Jam)
 📊 Total: 16 Pelajaran (35 Jam)
-🚀 Powered by XTM1 Space
+🚀 Powered by XTM1 Web Developer
 `);
