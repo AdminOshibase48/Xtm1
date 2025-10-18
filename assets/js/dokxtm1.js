@@ -164,6 +164,6 @@ document.addEventListener('DOMContentLoaded', function() {
     🚀 Selamat datang di XTM1 DOCS!
     📁 Dokumentasi Kelas Mekatronika
     👥 41 Anggota | 📚 50+ File
-    🔗 https://drive.google.com/drive/folders/1H9WEJEbN4BnxZk5dZsv4M55DpKDg-rKj
+    🔗 Klik Liknya tuhh disana etdah 
     `);
 });
