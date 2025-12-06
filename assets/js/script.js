@@ -665,9 +665,8 @@ window.addEventListener('error', function(e) {
 window.addEventListener('unhandledrejection', function(e) {
     console.log('⚠️ Promise rejection ditangkap:', e.reason);
     e.preventDefault();
-});
-// =====================================================
-// POPUP PENGUMUMAN - TAMBAHAN BARU (TAMBAHKAN DI AKHIR FILE)
+});// =====================================================
+// POPUP PENGUMUMAN - VERSI DIPERBAIKI DENGAN LINK CHATBOT
 // =====================================================
 
 // Announcement Popup Functionality
@@ -691,7 +690,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
         if (!hasClosedAnnouncement && !hasClosedSession) {
             announcementPopup.classList.add('active');
-            // Tambahkan class untuk animasi masuk
             document.body.style.overflow = 'hidden'; // Mencegah scroll
             console.log('📢 Popup pengumuman ditampilkan');
         }
@@ -708,7 +706,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (closeBtn) {
         closeBtn.addEventListener('click', function() {
             closeAnnouncement();
-            // Simpan di sessionStorage agar tidak muncul lagi di sesi ini
             sessionStorage.setItem('announcementClosed', 'true');
         });
     }
@@ -717,26 +714,28 @@ document.addEventListener('DOMContentLoaded', function() {
     if (closePermanentlyBtn) {
         closePermanentlyBtn.addEventListener('click', function() {
             closeAnnouncement();
-            // Simpan di sessionStorage agar tidak muncul lagi di sesi ini
             sessionStorage.setItem('announcementClosed', 'true');
         });
     }
     
-    // Tombol "Coba Chatbot"
+    // 🚀 TOMBOL "COBA CHATBOT" - VERSI DIPERBAIKI
     if (tryBotBtn) {
         tryBotBtn.addEventListener('click', function() {
             closeAnnouncement();
-            // Simpan di localStorage agar tidak muncul lagi selamanya
             localStorage.setItem('announcementClosed', 'true');
             
-            // Arahkan ke chatbot atau buka modal chatbot
-            alert('🚀 Fitur chatbot sedang dalam pengembangan! Akan segera hadir...');
+            // ⚡ SESUAIKAN URL BERIKUT DENGAN LINK CHATBOT KAMU ⚡
+            const chatbotUrl = 'https://xmekatronika1ai.infinityfree.me'; // GANTI INI!
             
-            // Atau untuk navigasi ke section tertentu:
-            // window.location.hash = '#chatbot-section';
-            
-            // Atau untuk membuka modal chatbot:
-            // openChatbotModal();
+            // Buka website chatbot di tab baru
+            if (chatbotUrl && chatbotUrl !== 'https://xmekatronika1ai.infinityfree.me') {
+                window.open(chatbotUrl, '_blank');
+                console.log('🤖 Chatbot dibuka di tab baru:', chatbotUrl);
+            } else {
+                // Fallback jika URL belum diatur
+                alert('⚠️ URL chatbot belum dikonfigurasi! Silakan hubungi developer.');
+                console.error('URL chatbot belum dikonfigurasi!');
+            }
         });
     }
     
@@ -755,32 +754,4 @@ document.addEventListener('DOMContentLoaded', function() {
             sessionStorage.setItem('announcementClosed', 'true');
         }
     });
-    
-    // Tambahkan efek ketik untuk judul (opsional)
-    const announcementTitle = document.querySelector('.announcement-title');
-    if (announcementTitle) {
-        const originalText = announcementTitle.textContent;
-        announcementTitle.textContent = '';
-        
-        let i = 0;
-        function typeWriter() {
-            if (i < originalText.length && !hasClosedAnnouncement && !hasClosedSession) {
-                announcementTitle.textContent += originalText.charAt(i);
-                i++;
-                setTimeout(typeWriter, 50);
-            }
-        }
-        
-        // Mulai efek ketik saat popup muncul
-        setTimeout(typeWriter, 2300);
-    }
 });
-
-// Fungsi untuk reset pengaturan (untuk testing) - opsional
-function resetAnnouncement() {
-    localStorage.removeItem('announcementClosed');
-    sessionStorage.removeItem('announcementClosed');
-    location.reload();
-}
-
-console.log('✅ Fungsi popup pengumuman berhasil ditambahkan');
