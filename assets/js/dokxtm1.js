@@ -167,3 +167,111 @@ document.addEventListener('DOMContentLoaded', function() {
     🔗 Klik Liknya tuhh disana etdah 
     `);
 });
+
+// =====================================================
+// POPUP PENGUMUMAN - STRATEGI MARKETING YANG BENAR
+// =====================================================
+
+// Announcement Popup Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const announcementPopup = document.getElementById('announcement-popup');
+    const closeBtn = document.querySelector('.announcement-close');
+    const closePermanentlyBtn = document.getElementById('close-permanently');
+    const tryBotBtn = document.getElementById('try-bot-btn');
+    
+    // Jika elemen popup tidak ditemukan, jangan jalankan kode ini
+    if (!announcementPopup) {
+        console.log('❌ Popup pengumuman tidak ditemukan');
+        return;
+    }
+    
+    console.log('✅ Popup ditemukan, siap ditampilkan');
+    
+    // 🔴 STRATEGI MARKETING YANG BENAR:
+    // 1. HANYA cek jika user sudah pernah KLIK "COBA CHATBOT"
+    // 2. JANGAN cek untuk tombol "Nanti Saja" atau "Close"
+    const hasTriedChatbot = localStorage.getItem('hasTriedChatbot');
+    
+    // Tampilkan popup SETIAP KALI, kecuali user sudah pernah klik "Coba Chatbot"
+    setTimeout(() => {
+        if (!hasTriedChatbot) {
+            announcementPopup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            console.log('📢 Popup ditampilkan untuk marketing!');
+        } else {
+            console.log('😊 User sudah pernah mencoba chatbot, popup disembunyikan');
+        }
+    }, 1500); // Delay 1.5 detik agar user lihat website dulu
+    
+    // Fungsi untuk menutup popup
+    function closeAnnouncement() {
+        announcementPopup.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // 1. TOMBOL CLOSE (×) - Hanya tutup untuk sesi ini
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            closeAnnouncement();
+            console.log('❌ Popup ditutup, tapi besok muncul lagi');
+        });
+    }
+    
+    // 2. TOMBOL "NANTI SAJA" - Hanya tutup untuk sesi ini
+    if (closePermanentlyBtn) {
+        closePermanentlyBtn.addEventListener('click', function() {
+            closeAnnouncement();
+            console.log('⏸️ User pilih "Nanti Saja", besok muncul lagi');
+        });
+    }
+    
+    // 3. 🚀 TOMBOL "COBA CHATBOT" - INI SATU-SATUNYA YANG SIMPAN KE localStorage
+    if (tryBotBtn) {
+        tryBotBtn.addEventListener('click', function() {
+            closeAnnouncement();
+            
+            // ⚡ SIMPAN BAHWA USER SUDAH COBA CHATBOT
+            localStorage.setItem('hasTriedChatbot', 'true');
+            console.log('✅ User klik "Coba Chatbot", tidak akan muncul lagi');
+            
+            // Buka chatbot di tab baru
+            const chatbotUrl = 'https://xmekatronika1ai.infinityfree.me/';
+            window.open(chatbotUrl, '_blank');
+            console.log('🤖 Chatbot dibuka:', chatbotUrl);
+        });
+    }
+    
+    // Tutup popup ketika klik di luar area konten
+    announcementPopup.addEventListener('click', function(e) {
+        if (e.target === announcementPopup) {
+            closeAnnouncement();
+            console.log('🖱️ Klik di luar popup, besok muncul lagi');
+        }
+    });
+    
+    // Tutup dengan tombol ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && announcementPopup.classList.contains('active')) {
+            closeAnnouncement();
+            console.log('⌨️ ESC ditekan, besok muncul lagi');
+        }
+    });
+});
+
+// 🔧 FUNGSI UNTUK TESTING & RESET
+function resetChatbotPreference() {
+    localStorage.removeItem('hasTriedChatbot');
+    console.log('🔄 Preference direset, popup akan muncul lagi');
+    location.reload();
+}
+
+function forceShowPopup() {
+    const popup = document.getElementById('announcement-popup');
+    if (popup) {
+        popup.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        console.log('🔧 Popup dipaksa tampil');
+    }
+}
+
+console.log('🎯 Popup marketing siap! Tampilkan tiap user masuk!');
