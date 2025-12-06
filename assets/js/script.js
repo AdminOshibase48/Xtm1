@@ -666,78 +666,115 @@ window.addEventListener('unhandledrejection', function(e) {
     console.log('⚠️ Promise rejection ditangkap:', e.reason);
     e.preventDefault();
 });
+// =====================================================
+// POPUP PENGUMUMAN - VERSI DEBUG
+// =====================================================
 
-// =====================================================
-// POPUP PENGUMUMAN - VERSI FINAL DENGAN URL CHATBOT
-// =====================================================
+console.log('🔄 Script popup dimuat...');
 
 // Announcement Popup Functionality
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('✅ DOM Content Loaded - Mulai inisialisasi popup');
+    
     const announcementPopup = document.getElementById('announcement-popup');
     const closeBtn = document.querySelector('.announcement-close');
     const closePermanentlyBtn = document.getElementById('close-permanently');
     const tryBotBtn = document.getElementById('try-bot-btn');
     
-    // Jika elemen popup tidak ditemukan, jangan jalankan kode ini
+    console.log('🔍 Mencari elemen popup...');
+    console.log('announcementPopup:', announcementPopup);
+    console.log('closeBtn:', closeBtn);
+    console.log('closePermanentlyBtn:', closePermanentlyBtn);
+    console.log('tryBotBtn:', tryBotBtn);
+    
+    // Jika elemen popup tidak ditemukan, tampilkan error detail
     if (!announcementPopup) {
-        console.log('❌ Popup pengumuman tidak ditemukan, fungsi dinonaktifkan');
+        console.error('❌ ELEMEN POPUP TIDAK DITEMUKAN!');
+        console.error('Periksa apakah HTML popup sudah ditambahkan sebelum </body>');
+        console.error('Pastikan ada elemen dengan id="announcement-popup"');
         return;
     }
+    
+    console.log('✅ Elemen popup ditemukan');
     
     // Cek jika user sudah pernah menutup popup
     const hasClosedAnnouncement = localStorage.getItem('announcementClosed');
     const hasClosedSession = sessionStorage.getItem('announcementClosed');
     
+    console.log('🔍 Cek status popup:');
+    console.log('hasClosedAnnouncement (localStorage):', hasClosedAnnouncement);
+    console.log('hasClosedSession (sessionStorage):', hasClosedSession);
+    
     // Tampilkan popup setelah delay (kecuali sudah pernah ditutup)
     setTimeout(() => {
+        console.log('⏰ Timer 2 detik selesai');
+        
         if (!hasClosedAnnouncement && !hasClosedSession) {
+            console.log('🚀 Menampilkan popup...');
             announcementPopup.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Mencegah scroll
-            console.log('📢 Popup pengumuman ditampilkan');
+            document.body.style.overflow = 'hidden';
+            console.log('📢 Popup pengumuman DITAMPILKAN!');
+        } else {
+            console.log('⏸️ Popup tidak ditampilkan karena sudah pernah ditutup');
         }
-    }, 2000); // Delay 2 detik
+    }, 2000);
     
     // Fungsi untuk menutup popup
     function closeAnnouncement() {
+        console.log('🛑 Menutup popup...');
         announcementPopup.classList.remove('active');
-        document.body.style.overflow = ''; // Kembalikan scroll
-        console.log('📢 Popup ditutup');
+        document.body.style.overflow = '';
+        console.log('✅ Popup ditutup');
     }
     
     // Event listener untuk tombol close
     if (closeBtn) {
+        console.log('✅ Tombol close ditemukan, menambahkan event listener');
         closeBtn.addEventListener('click', function() {
+            console.log('🔘 Tombol close diklik');
             closeAnnouncement();
             sessionStorage.setItem('announcementClosed', 'true');
+            console.log('💾 Disimpan di sessionStorage');
         });
+    } else {
+        console.error('❌ Tombol close TIDAK DITEMUKAN!');
     }
     
-    // Tombol "Nanti Saja" - tutup sementara
+    // Tombol "Nanti Saja"
     if (closePermanentlyBtn) {
+        console.log('✅ Tombol "Nanti Saja" ditemukan');
         closePermanentlyBtn.addEventListener('click', function() {
+            console.log('🔘 Tombol "Nanti Saja" diklik');
             closeAnnouncement();
             sessionStorage.setItem('announcementClosed', 'true');
         });
+    } else {
+        console.error('❌ Tombol "Nanti Saja" TIDAK DITEMUKAN!');
     }
     
-    // 🚀 TOMBOL "COBA CHATBOT" - MEMBUKA TAB BARU
+    // 🚀 TOMBOL "COBA CHATBOT"
     if (tryBotBtn) {
+        console.log('✅ Tombol "Coba Chatbot" ditemukan');
         tryBotBtn.addEventListener('click', function() {
+            console.log('🔘 Tombol "Coba Chatbot" diklik');
             closeAnnouncement();
             localStorage.setItem('announcementClosed', 'true');
             
-            // ⚡ URL CHATBOT KAMU: https://xmekatronika1ai.infinityfree.me/
+            // URL chatbot kamu
             const chatbotUrl = 'https://xmekatronika1ai.infinityfree.me/';
+            console.log('🌐 Membuka chatbot:', chatbotUrl);
             
             // Buka website chatbot di tab baru
             window.open(chatbotUrl, '_blank');
-            console.log('🤖 Chatbot dibuka di tab baru:', chatbotUrl);
         });
+    } else {
+        console.error('❌ Tombol "Coba Chatbot" TIDAK DITEMUKAN!');
     }
     
     // Tutup popup ketika klik di luar area konten
     announcementPopup.addEventListener('click', function(e) {
         if (e.target === announcementPopup) {
+            console.log('🖱️ Klik di luar area konten');
             closeAnnouncement();
             sessionStorage.setItem('announcementClosed', 'true');
         }
@@ -746,36 +783,35 @@ document.addEventListener('DOMContentLoaded', function() {
     // Tutup dengan tombol ESC
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && announcementPopup.classList.contains('active')) {
+            console.log('⌨️ Tombol ESC ditekan');
             closeAnnouncement();
             sessionStorage.setItem('announcementClosed', 'true');
         }
     });
     
-    // Tambahkan efek ketik untuk judul (opsional)
-    const announcementTitle = document.querySelector('.announcement-title');
-    if (announcementTitle) {
-        const originalText = announcementTitle.textContent;
-        announcementTitle.textContent = '';
-        
-        let i = 0;
-        function typeWriter() {
-            if (i < originalText.length && !hasClosedAnnouncement && !hasClosedSession) {
-                announcementTitle.textContent += originalText.charAt(i);
-                i++;
-                setTimeout(typeWriter, 50);
-            }
-        }
-        
-        // Mulai efek ketik saat popup muncul
-        setTimeout(typeWriter, 2300);
-    }
+    console.log('🎉 Inisialisasi popup SELESAI!');
 });
 
-// Fungsi untuk reset pengaturan (untuk testing) - opsional
+// Fungsi untuk reset pengaturan (untuk testing)
 function resetAnnouncement() {
+    console.log('🔄 Reset pengaturan popup...');
     localStorage.removeItem('announcementClosed');
     sessionStorage.removeItem('announcementClosed');
+    console.log('✅ localStorage & sessionStorage dihapus');
+    console.log('🔁 Refresh halaman...');
     location.reload();
 }
 
-console.log('✅ Fungsi popup pengumuman berhasil ditambahkan');
+// Tambahkan juga fungsi ini untuk manual testing
+function showAnnouncementNow() {
+    const popup = document.getElementById('announcement-popup');
+    if (popup) {
+        popup.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        console.log('🔧 Popup ditampilkan secara manual');
+    } else {
+        console.error('❌ Tidak bisa menampilkan popup - elemen tidak ditemukan');
+    }
+}
+
+console.log('✅ Script popup siap digunakan');
