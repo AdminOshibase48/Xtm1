@@ -1135,378 +1135,264 @@ html {
     50% { border-color: var(--accent-orange) }
 }
 
-/* ========================================
-   ANNOUNCEMENT POPUP STYLES
-   ======================================== */
-
-/* Overlay Background */
-#announcement-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(10, 17, 40, 0.98);
-    backdrop-filter: blur(15px);
-    z-index: 9999;
-    display: none;
-    opacity: 0;
-    animation: overlayFadeIn 0.6s ease-out forwards;
-}
-
-@keyframes overlayFadeIn {
-    from {
-        opacity: 0;
-        backdrop-filter: blur(0px);
-    }
-    to {
-        opacity: 1;
-        backdrop-filter: blur(15px);
-    }
-}
-
-/* Popup Container */
+/* Announcement Popup */
 .announcement-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
-    width: 90%;
-    max-width: 500px;
-    background: linear-gradient(145deg, #0a1128 0%, #1a237e 100%);
-    border-radius: 25px;
-    padding: 40px;
-    box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.4),
-        0 0 50px rgba(255, 109, 0, 0.3);
-    z-index: 10000;
-    opacity: 0;
-    animation: popupSlideIn 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 0.3s;
-    border: 2px solid rgba(255, 109, 0, 0.3);
-    overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 17, 40, 0.95);
+  backdrop-filter: blur(5px);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  padding: 20px;
 }
 
-@keyframes popupSlideIn {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.8) rotate(-5deg);
-    }
-    to {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1) rotate(0deg);
-    }
+.announcement-popup.active {
+  opacity: 1;
+  visibility: visible;
 }
 
-/* Glow Effect */
-.announcement-popup::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, 
-        #ff6d00, #ff9100, #1a237e, #0a1128, #ff6d00);
-    background-size: 400% 400%;
-    border-radius: 27px;
-    z-index: -1;
-    animation: borderGlow 3s ease infinite;
-    filter: blur(5px);
+.announcement-content {
+  background: var(--card-bg);
+  border-radius: 20px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 
+              0 0 0 1px rgba(255, 109, 0, 0.1),
+              0 0 30px rgba(255, 109, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  transform: translateY(30px) scale(0.95);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-@keyframes borderGlow {
-    0%, 100% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
+.announcement-popup.active .announcement-content {
+  transform: translateY(0) scale(1);
 }
 
-/* Close Button */
-.popup-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 109, 0, 0.2);
-    border: 2px solid #ff6d00;
-    border-radius: 50%;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    z-index: 10;
+.announcement-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    var(--accent-orange), 
+    var(--accent-orange-light), 
+    var(--primary-blue));
 }
 
-.popup-close:hover {
-    background: #ff6d00;
-    transform: rotate(90deg) scale(1.1);
-    box-shadow: 0 0 20px rgba(255, 109, 0, 0.6);
+.announcement-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 109, 0, 0.1);
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s;
 }
 
-/* Popup Content */
-.popup-header {
-    text-align: center;
-    margin-bottom: 25px;
+.announcement-close:hover {
+  background: var(--accent-orange);
+  color: white;
+  transform: rotate(90deg);
 }
 
-.popup-logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    background: linear-gradient(45deg, #ff6d00, #ffab40);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 30px rgba(255, 109, 0, 0.3);
-    animation: textShine 2s infinite;
+.announcement-header {
+  padding: 30px 30px 20px;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(to bottom, 
+    rgba(26, 35, 126, 0.05), 
+    transparent);
 }
 
-@keyframes textShine {
-    0%, 100% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
+.announcement-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-orange-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  font-size: 1.8rem;
+  color: white;
+  box-shadow: 0 8px 20px rgba(255, 109, 0, 0.3);
+  animation: bounce 2s infinite;
 }
 
-.popup-title {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: white;
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
-.popup-subtitle {
-    color: #ffab40;
-    font-size: 1rem;
-    opacity: 0.9;
+.announcement-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-/* Popup Body */
-.popup-body {
-    margin-bottom: 30px;
+.announcement-badge {
+  background: var(--accent-orange);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  animation: pulse-glow 2s infinite;
+}
+
+.announcement-body {
+  padding: 0 30px;
 }
 
 .announcement-message {
-    background: rgba(255, 255, 255, 0.05);
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: var(--accent-orange);
+  text-align: center;
+  font-weight: 600;
+}
+
+.announcement-details {
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 25px;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.announcement-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.feature {
+  background: rgba(26, 35, 126, 0.1);
+  border-radius: 10px;
+  padding: 15px 10px;
+  text-align: center;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.feature:hover {
+  background: rgba(255, 109, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.feature i {
+  font-size: 1.5rem;
+  color: var(--accent-orange);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.feature span {
+  font-size: 0.8rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.announcement-footer {
+  padding: 20px 30px 30px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  background: rgba(10, 17, 40, 0.05);
+  border-top: 1px solid rgba(255, 109, 0, 0.1);
+}
+
+#try-bot-btn {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Dark mode adjustments */
+.dark-mode .announcement-content {
+  background: linear-gradient(to bottom, #252547, #1a1a36);
+}
+
+.dark-mode .announcement-footer {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .feature {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .announcement-content {
+    max-width: 90%;
+  }
+  
+  .announcement-header,
+  .announcement-body {
     padding: 20px;
-    border-radius: 15px;
-    border-left: 4px solid #ff6d00;
-    margin-bottom: 25px;
-}
-
-.announcement-message p {
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.6;
-    margin-bottom: 10px;
-}
-
-.announcement-message p:last-child {
-    margin-bottom: 0;
-}
-
-/* Features List */
-.features-list {
-    list-style: none;
-    margin: 20px 0;
-}
-
-.features-list li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.95rem;
-}
-
-.features-list li i {
-    color: #ff6d00;
-    margin-right: 12px;
-    font-size: 1.2rem;
-    background: rgba(255, 109, 0, 0.1);
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Countdown Timer */
-.countdown-timer {
-    display: flex;
-    justify-content: center;
+  }
+  
+  .announcement-footer {
+    padding: 15px 20px 20px;
+    flex-direction: column;
+  }
+  
+  .announcement-features {
+    grid-template-columns: 1fr;
     gap: 10px;
-    margin: 25px 0;
-}
-
-.countdown-item {
-    background: rgba(255, 109, 0, 0.15);
-    border-radius: 10px;
-    padding: 15px;
-    min-width: 60px;
-    text-align: center;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 109, 0, 0.3);
-}
-
-.countdown-number {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #ff6d00;
-    font-family: 'Orbitron', sans-serif;
-    display: block;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% {
-        text-shadow: 0 0 10px rgba(255, 109, 0, 0.5);
-    }
-    50% {
-        text-shadow: 0 0 20px rgba(255, 109, 0, 0.8);
-    }
-}
-
-.countdown-label {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
-    margin-top: 5px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Popup Footer */
-.popup-footer {
-    text-align: center;
-}
-
-.action-buttons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 25px;
-}
-
-.popup-btn {
-    padding: 12px 25px;
-    border-radius: 25px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
+  }
+  
+  .announcement-title {
+    font-size: 1.3rem;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .announcement-badge {
+    position: relative;
+    top: 0;
+    right: 0;
     display: inline-block;
-    cursor: pointer;
-    border: none;
-    font-family: 'Poppins', sans-serif;
+    margin-left: 10px;
+  }
 }
 
-.popup-btn.primary {
-    background: linear-gradient(45deg, #ff6d00, #ff9100);
-    color: white;
-    box-shadow: 0 5px 20px rgba(255, 109, 0, 0.3);
-}
-
-.popup-btn.primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255, 109, 0, 0.5);
-}
-
-.popup-btn.secondary {
-    background: transparent;
-    border: 2px solid #ff6d00;
-    color: #ff6d00;
-}
-
-.popup-btn.secondary:hover {
-    background: rgba(255, 109, 0, 0.1);
-    transform: translateY(-3px);
-}
-
-/* Robot Animation in Popup */
-.popup-robot {
-    text-align: center;
-    margin: 20px 0;
-    animation: robotFloat 3s ease-in-out infinite;
-}
-
-@keyframes robotFloat {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-.robot-emoji {
-    font-size: 2.5rem;
-    display: block;
-    margin-bottom: 10px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .announcement-popup {
-        width: 95%;
-        padding: 30px 20px;
-    }
-    
-    .popup-logo {
-        font-size: 2.5rem;
-    }
-    
-    .popup-title {
-        font-size: 1.5rem;
-    }
-    
-    .countdown-item {
-        padding: 10px;
-        min-width: 50px;
-    }
-    
-    .countdown-number {
-        font-size: 1.5rem;
-    }
-    
-    .action-buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .popup-btn {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .announcement-popup {
-        padding: 25px 15px;
-    }
-    
-    .popup-logo {
-        font-size: 2rem;
-    }
-    
-    .popup-title {
-        font-size: 1.3rem;
-    }
-    
-    .countdown-timer {
-        flex-wrap: wrap;
-    }
-    
-    .countdown-item {
-        flex: 1;
-        min-width: 70px;
-    }
+@media (max-width: 400px) {
+  .announcement-popup {
+    padding: 10px;
+  }
+  
+  .announcement-content {
+    max-width: 95%;
+  }
 }
