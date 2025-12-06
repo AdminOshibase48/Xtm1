@@ -665,8 +665,9 @@ window.addEventListener('error', function(e) {
 window.addEventListener('unhandledrejection', function(e) {
     console.log('⚠️ Promise rejection ditangkap:', e.reason);
     e.preventDefault();
-});// =====================================================
-// POPUP PENGUMUMAN - VERSI DIPERBAIKI DENGAN LINK CHATBOT
+});
+// =====================================================
+// POPUP PENGUMUMAN - VERSI FINAL DENGAN URL CHATBOT
 // =====================================================
 
 // Announcement Popup Functionality
@@ -718,24 +719,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // 🚀 TOMBOL "COBA CHATBOT" - VERSI DIPERBAIKI
+    // 🚀 TOMBOL "COBA CHATBOT" - MEMBUKA TAB BARU
     if (tryBotBtn) {
         tryBotBtn.addEventListener('click', function() {
             closeAnnouncement();
             localStorage.setItem('announcementClosed', 'true');
             
-            // ⚡ SESUAIKAN URL BERIKUT DENGAN LINK CHATBOT KAMU ⚡
-            const chatbotUrl = 'https://xmekatronika1ai.infinityfree.me'; // GANTI INI!
+            // ⚡ URL CHATBOT KAMU: https://xmekatronika1ai.infinityfree.me/
+            const chatbotUrl = 'https://xmekatronika1ai.infinityfree.me/';
             
             // Buka website chatbot di tab baru
-            if (chatbotUrl && chatbotUrl !== 'https://xmekatronika1ai.infinityfree.me') {
-                window.open(chatbotUrl, '_blank');
-                console.log('🤖 Chatbot dibuka di tab baru:', chatbotUrl);
-            } else {
-                // Fallback jika URL belum diatur
-                alert('⚠️ URL chatbot belum dikonfigurasi! Silakan hubungi developer.');
-                console.error('URL chatbot belum dikonfigurasi!');
-            }
+            window.open(chatbotUrl, '_blank');
+            console.log('🤖 Chatbot dibuka di tab baru:', chatbotUrl);
         });
     }
     
@@ -754,4 +749,32 @@ document.addEventListener('DOMContentLoaded', function() {
             sessionStorage.setItem('announcementClosed', 'true');
         }
     });
+    
+    // Tambahkan efek ketik untuk judul (opsional)
+    const announcementTitle = document.querySelector('.announcement-title');
+    if (announcementTitle) {
+        const originalText = announcementTitle.textContent;
+        announcementTitle.textContent = '';
+        
+        let i = 0;
+        function typeWriter() {
+            if (i < originalText.length && !hasClosedAnnouncement && !hasClosedSession) {
+                announcementTitle.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        
+        // Mulai efek ketik saat popup muncul
+        setTimeout(typeWriter, 2300);
+    }
 });
+
+// Fungsi untuk reset pengaturan (untuk testing) - opsional
+function resetAnnouncement() {
+    localStorage.removeItem('announcementClosed');
+    sessionStorage.removeItem('announcementClosed');
+    location.reload();
+}
+
+console.log('✅ Fungsi popup pengumuman berhasil ditambahkan');
