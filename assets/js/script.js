@@ -666,6 +666,7 @@ window.addEventListener('unhandledrejection', function(e) {
     console.log('⚠️ Promise rejection ditangkap:', e.reason);
     e.preventDefault();
 });
+
 // =====================================================
 // POPUP PENGUMUMAN - VERSI FINAL DENGAN URL CHATBOT
 // =====================================================
