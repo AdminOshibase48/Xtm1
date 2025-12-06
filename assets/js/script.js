@@ -1,20 +1,17 @@
-// ========================================
-// DATA DUMMY UNTUK ANGGOTA KELAS
-// ========================================
-
+// Data dummy untuk anggota kelas
 const membersData = [
     { id: 1, name: "Drs. Nurhayat Arif, MK", role: "Wali Kelas", avatar: "NA" },
     { id: 2, name: "Lutfi", role: "Ketua Kelas", avatar: "LF" },
     { id: 3, name: "Cika", role: "Wakil Ketua", avatar: "CK" },
-    { id: 4, name: "Khanza", role: "Bendahara 1", avatar: "KZ" },
-    { id: 5, name: "Mutiya", role: "Bendahara 2", avatar: "MT" },
-    { id: 6, name: "Putri", role: "S.Olahraga", avatar: "PT" },
-    { id: 7, name: "Tia", role: "Sekretaris 1", avatar: "TA" },
-    { id: 8, name: "Fitra", role: "Sekretaris 2", avatar: "FT" },
-    { id: 9, name: "Andika", role: "S.Peralatan", avatar: "AD" },
-    { id: 10, name: "Farel", role: "S.Kerohanian", avatar: "FR" },
-    { id: 11, name: "Redzuan", role: "S.Keamanan", avatar: "RZ" },
-    { id: 12, name: "Nursyam", role: "Web Developer", avatar: "NS" }
+    { id: 4, name: "Khanza", role: "Bendahara 1", avatar: "MT" },
+    { id: 5, name: "Mutiya", role: "Bendahara 2", avatar: "FT" },
+    { id: 6, name: "Putri", role: "S.Olahraga", avatar: "RZ" },
+    { id: 7, name: "Tia", role: "Sekretaris 1", avatar: "AR" },
+    { id: 8, name: "Fitra", role: "Sekretaris 2", avatar: "SN" },
+    { id: 9, name: "Andika", role: "S.Peralatan", avatar: "BS" },
+    { id: 10, name: "Farel", role: "S.Kerohanian", avatar: "DL" },
+    { id: 11, name: "Redzuan", role: "S.Keamanan", avatar: "FP" },
+    { id: 12, name: "Nursyam", role: "Web Developer", avatar: "MS" }
 ];
 
 // Data dummy untuk feed kelas
@@ -25,7 +22,7 @@ const feedData = [
         avatar: "LF", 
         date: "2 jam yang lalu", 
         content: "Hari ini kita berhasil menyelesaikan proyek robot pemilah barang! Kerja bagus semuanya! 🎉", 
-        image: "https://via.placeholder.com/300x200/1a237e/ffffff?text=Robot+Project",
+        image: "assets/images/project-success.jpg",
         likes: 15,
         comments: 5
     },
@@ -44,7 +41,7 @@ const feedData = [
         avatar: "FT", 
         date: "2 hari yang lalu", 
         content: "Foto dokumentasi kegiatan praktikum kemarin. Semua terlihat serius dan fokus! 👨‍🔧", 
-        image: "https://via.placeholder.com/300x200/0a1128/ffffff?text=Praktikum+Mekatronika",
+        image: "assets/images/praktikum.jpg",
         likes: 22,
         comments: 7
     }
@@ -89,296 +86,8 @@ let currentQuizQuestion = 0;
 let quizScore = 0;
 let musicInitialized = false;
 
-// ========================================
-// POPUP ANNOUNCEMENT - FIXED VERSION
-// ========================================
-
-// Fungsi untuk menampilkan popup
-function showAnnouncementPopup() {
-    // Cek apakah sudah pernah ditampilkan hari ini
-    const today = new Date().toDateString();
-    const popupShown = localStorage.getItem('popupShown');
-    
-    if (popupShown !== today) {
-        // Buat overlay background
-        const overlay = document.createElement('div');
-        overlay.id = 'popup-overlay';
-        overlay.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 17, 40, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 9998;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.5s ease;
-        `;
-        
-        // Buat popup container
-        const popup = document.createElement('div');
-        popup.id = 'announcement-popup';
-        popup.style.cssText = `
-            position: relative;
-            background: linear-gradient(145deg, #0a1128 0%, #1a237e 100%);
-            padding: 40px;
-            border-radius: 20px;
-            border: 2px solid #ff6d00;
-            box-shadow: 0 0 40px rgba(255, 109, 0, 0.3);
-            max-width: 500px;
-            width: 90%;
-            animation: slideIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        `;
-        
-        // Konten popup
-        popup.innerHTML = `
-            <!-- Tombol Close -->
-            <button id="popup-close-btn" style="
-                position: absolute;
-                top: 15px;
-                right: 15px;
-                background: #ff6d00;
-                color: white;
-                border: none;
-                width: 35px;
-                height: 35px;
-                border-radius: 50%;
-                cursor: pointer;
-                font-size: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: all 0.3s;
-                z-index: 9999;
-            ">×</button>
-            
-            <!-- Konten -->
-            <div style="text-align: center;">
-                <!-- Header -->
-                <div style="margin-bottom: 20px;">
-                    <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: #ff6d00; margin-bottom: 10px;">XTM1</h2>
-                    <p style="color: #ffab40; font-size: 1.1rem;">Website AI Beta Launch! 🚀</p>
-                </div>
-                
-                <!-- Pesan -->
-                <div style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 15px; margin-bottom: 25px; border-left: 4px solid #ff6d00;">
-                    <p style="color: white; margin-bottom: 10px; line-height: 1.6;">
-                        <strong>🎉 Selamat datang di XTM1 Space v2.0!</strong>
-                    </p>
-                    <p style="color: rgba(255, 255, 255, 0.9); font-size: 0.95rem;">
-                        Website resmi kelas XTM1 dengan fitur AI beta dan pengalaman terbaru.
-                    </p>
-                </div>
-                
-                <!-- Fitur -->
-                <div style="margin-bottom: 25px;">
-                    <ul style="color: rgba(255, 255, 255, 0.9); text-align: left; padding-left: 20px;">
-                        <li style="margin-bottom: 8px;">🤖 AI Assistant Chat</li>
-                        <li style="margin-bottom: 8px;">🎮 Game & Quiz Interaktif</li>
-                        <li style="margin-bottom: 8px;">📊 Dashboard Anggota Real-time</li>
-                        <li>📱 Responsif semua device</li>
-                    </ul>
-                </div>
-                
-                <!-- Countdown Timer -->
-                <div id="popup-timer" style="display: flex; justify-content: center; gap: 10px; margin: 25px 0;">
-                    <!-- Timer akan diisi oleh JavaScript -->
-                </div>
-                
-                <!-- Tombol Aksi -->
-                <div style="display: flex; gap: 15px; justify-content: center;">
-                    <button id="popup-explore-btn" style="
-                        background: linear-gradient(45deg, #ff6d00, #ff9100);
-                        color: white;
-                        border: none;
-                        padding: 12px 25px;
-                        border-radius: 25px;
-                        font-weight: 600;
-                        cursor: pointer;
-                        transition: all 0.3s;
-                        box-shadow: 0 5px 15px rgba(255, 109, 0, 0.3);
-                    ">Jelajahi Sekarang</button>
-                    
-                    <button id="popup-later-btn" style="
-                        background: transparent;
-                        border: 2px solid #ff6d00;
-                        color: #ff6d00;
-                        padding: 12px 25px;
-                        border-radius: 25px;
-                        font-weight: 600;
-                        cursor: pointer;
-                        transition: all 0.3s;
-                    ">Nanti Saja</button>
-                </div>
-                
-                <!-- Footer -->
-                <p style="margin-top: 20px; color: rgba(255, 255, 255, 0.6); font-size: 0.85rem;">
-                    ⚡ Website ini akan terus dikembangkan dengan fitur AI canggih!
-                </p>
-            </div>
-        `;
-        
-        // Tambahkan ke overlay
-        overlay.appendChild(popup);
-        document.body.appendChild(overlay);
-        
-        // Setup timer
-        setupPopupTimer();
-        
-        // Setup event listeners
-        setupPopupEvents();
-        
-        // Simpan ke localStorage
-        localStorage.setItem('popupShown', today);
-    }
-}
-
-// Setup event listeners untuk popup
-function setupPopupEvents() {
-    // Tombol close
-    const closeBtn = document.getElementById('popup-close-btn');
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeAnnouncementPopup);
-    }
-    
-    // Tombol explore
-    const exploreBtn = document.getElementById('popup-explore-btn');
-    if (exploreBtn) {
-        exploreBtn.addEventListener('click', function() {
-            closeAnnouncementPopup();
-            setTimeout(() => {
-                // Scroll ke about section
-                const aboutSection = document.getElementById('about');
-                if (aboutSection) {
-                    aboutSection.scrollIntoView({ behavior: 'smooth' });
-                }
-                
-                // Trigger robot greeting
-                setTimeout(() => {
-                    const robotSpeech = document.getElementById('robotSpeech');
-                    if (robotSpeech) {
-                        robotSpeech.textContent = 'Yuk jelajahi fitur AI beta kami! 🤖✨';
-                        robotSpeech.style.opacity = '1';
-                        
-                        setTimeout(() => {
-                            robotSpeech.style.opacity = '0';
-                        }, 4000);
-                    }
-                }, 500);
-            }, 300);
-        });
-    }
-    
-    // Tombol nanti
-    const laterBtn = document.getElementById('popup-later-btn');
-    if (laterBtn) {
-        laterBtn.addEventListener('click', closeAnnouncementPopup);
-    }
-    
-    // Close dengan klik di luar popup
-    const overlay = document.getElementById('popup-overlay');
-    if (overlay) {
-        overlay.addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeAnnouncementPopup();
-            }
-        });
-    }
-    
-    // Close dengan Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const overlay = document.getElementById('popup-overlay');
-            if (overlay) {
-                closeAnnouncementPopup();
-            }
-        }
-    });
-}
-
-// Fungsi untuk close popup
-function closeAnnouncementPopup() {
-    const overlay = document.getElementById('popup-overlay');
-    if (overlay) {
-        overlay.style.animation = 'fadeOut 0.3s ease';
-        setTimeout(() => {
-            if (overlay.parentNode) {
-                overlay.parentNode.removeChild(overlay);
-            }
-        }, 300);
-    }
-}
-
-// Setup timer untuk popup
-function setupPopupTimer() {
-    const timerContainer = document.getElementById('popup-timer');
-    if (!timerContainer) return;
-    
-    // Buat element timer
-    timerContainer.innerHTML = `
-        <div style="background: rgba(255, 109, 0, 0.15); padding: 15px; border-radius: 10px; min-width: 60px; border: 1px solid rgba(255, 109, 0, 0.3);">
-            <div id="popup-days" style="font-size: 2rem; font-weight: bold; color: #ff6d00; font-family: 'Orbitron', sans-serif;">30</div>
-            <div style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.7);">Hari</div>
-        </div>
-        <div style="background: rgba(255, 109, 0, 0.15); padding: 15px; border-radius: 10px; min-width: 60px; border: 1px solid rgba(255, 109, 0, 0.3);">
-            <div id="popup-hours" style="font-size: 2rem; font-weight: bold; color: #ff6d00; font-family: 'Orbitron', sans-serif;">00</div>
-            <div style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.7);">Jam</div>
-        </div>
-        <div style="background: rgba(255, 109, 0, 0.15); padding: 15px; border-radius: 10px; min-width: 60px; border: 1px solid rgba(255, 109, 0, 0.3);">
-            <div id="popup-minutes" style="font-size: 2rem; font-weight: bold; color: #ff6d00; font-family: 'Orbitron', sans-serif;">00</div>
-            <div style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.7);">Menit</div>
-        </div>
-        <div style="background: rgba(255, 109, 0, 0.15); padding: 15px; border-radius: 10px; min-width: 60px; border: 1px solid rgba(255, 109, 0, 0.3);">
-            <div id="popup-seconds" style="font-size: 2rem; font-weight: bold; color: #ff6d00; font-family: 'Orbitron', sans-serif;">00</div>
-            <div style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.7);">Detik</div>
-        </div>
-    `;
-    
-    // Set target date (30 hari dari sekarang)
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 30);
-    
-    // Update timer setiap detik
-    function updateTimer() {
-        const now = new Date().getTime();
-        const timeLeft = targetDate - now;
-        
-        if (timeLeft < 0) return;
-        
-        // Hitung waktu
-        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-        
-        // Update tampilan
-        const daysEl = document.getElementById('popup-days');
-        const hoursEl = document.getElementById('popup-hours');
-        const minutesEl = document.getElementById('popup-minutes');
-        const secondsEl = document.getElementById('popup-seconds');
-        
-        if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
-        if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
-        if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
-        if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
-    }
-    
-    updateTimer();
-    setInterval(updateTimer, 1000);
-}
-
-// ========================================
-// FUNGSI UTAMA - SEMUA FITUR LAMA
-// ========================================
-
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Tampilkan popup setelah 1 detik
-    setTimeout(showAnnouncementPopup, 1000);
-    
     // Inisialisasi komponen
     initNavigation();
     initRobot();
@@ -747,7 +456,7 @@ function initThemeToggle() {
     }
 }
 
-// Fungsi untuk inisialisasi kontrol musik
+// Fungsi untuk inisialisasi kontrol musik - FIXED VERSION
 function initMusicControl() {
     const musicToggle = document.getElementById('musicToggle');
     const bgMusic = document.getElementById('bgMusic');
@@ -779,6 +488,7 @@ function initMusicControl() {
             }).catch(error => {
                 // Error handling
                 console.log('❌ Tidak dapat memutar musik:', error);
+                showMusicHelpMessage();
                 isPlaying = false;
                 if (musicIcon) {
                     musicIcon.className = 'fas fa-music';
@@ -795,6 +505,43 @@ function initMusicControl() {
             musicIcon.className = 'fas fa-music';
         }
         musicToggle.classList.remove('playing');
+    }
+    
+    function showMusicHelpMessage() {
+        // Create a subtle notification instead of intrusive popup
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--card-bg);
+            color: var(--text-color);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            z-index: 10000;
+            max-width: 250px;
+            border-left: 4px solid var(--accent-orange);
+            animation: slideInRight 0.5s ease;
+        `;
+        notification.innerHTML = `
+            <p><strong>Tips Musik</strong></p>
+            <p>Beberapa browser memerlukan interaksi pengguna terlebih dahulu untuk memutar musik.</p>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // Remove after 5 seconds
+        setTimeout(() => {
+            if (document.body.contains(notification)) {
+                notification.style.animation = 'slideOutRight 0.5s ease';
+                setTimeout(() => {
+                    if (document.body.contains(notification)) {
+                        document.body.removeChild(notification);
+                    }
+                }, 500);
+            }
+        }, 5000);
     }
     
     // Event listener untuk toggle musik
@@ -817,6 +564,23 @@ function initMusicControl() {
             playMusic();
         }
     });
+    
+    // Enable audio context on first user interaction
+    function enableAudioOnInteraction() {
+        if (!musicInitialized) {
+            musicInitialized = true;
+            console.log('🎵 Audio context siap');
+            // Remove event listeners after first interaction
+            document.removeEventListener('click', enableAudioOnInteraction);
+            document.removeEventListener('keydown', enableAudioOnInteraction);
+            document.removeEventListener('touchstart', enableAudioOnInteraction);
+        }
+    }
+    
+    // Add multiple event listeners for first interaction
+    document.addEventListener('click', enableAudioOnInteraction);
+    document.addEventListener('keydown', enableAudioOnInteraction);
+    document.addEventListener('touchstart', enableAudioOnInteraction);
     
     console.log('✅ Sistem musik siap');
 }
@@ -860,94 +624,37 @@ function initScrollAnimations() {
     });
 }
 
-// Tambahkan CSS untuk animasi popup
-const popupStyle = document.createElement('style');
-popupStyle.textContent = `
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-    
-    @keyframes fadeOut {
-        from { opacity: 1; }
-        to { opacity: 0; }
-    }
-    
-    @keyframes slideIn {
-        from { 
+// Tambahkan CSS untuk animasi notifikasi
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
             opacity: 0;
-            transform: translateY(-50px) scale(0.9);
         }
-        to { 
+        to {
+            transform: translateX(0);
             opacity: 1;
-            transform: translateY(0) scale(1);
         }
     }
     
-    #popup-close-btn:hover {
-        background: #e65c00 !important;
-        transform: rotate(90deg) scale(1.1) !important;
-    }
-    
-    #popup-explore-btn:hover {
-        transform: translateY(-2px) !important;
-        box-shadow: 0 8px 20px rgba(255, 109, 0, 0.4) !important;
-    }
-    
-    #popup-later-btn:hover {
-        background: rgba(255, 109, 0, 0.1) !important;
-        transform: translateY(-2px) !important;
-    }
-    
-    /* Responsive untuk mobile */
-    @media (max-width: 768px) {
-        #announcement-popup {
-            padding: 25px 20px !important;
-            width: 95% !important;
+    @keyframes slideOutRight {
+        from {
+            transform: translateX(0);
+            opacity: 1;
         }
-        
-        #announcement-popup h2 {
-            font-size: 2rem !important;
-        }
-        
-        #popup-timer {
-            flex-wrap: wrap;
-            gap: 5px !important;
-        }
-        
-        #popup-timer > div {
-            padding: 10px !important;
-            min-width: 50px !important;
-        }
-        
-        #popup-explore-btn, #popup-later-btn {
-            padding: 10px 20px !important;
-            font-size: 0.9rem;
+        to {
+            transform: translateX(100%);
+            opacity: 0;
         }
     }
     
-    @media (max-width: 480px) {
-        #announcement-popup {
-            padding: 20px 15px !important;
-        }
-        
-        #announcement-popup h2 {
-            font-size: 1.8rem !important;
-        }
-        
-        #popup-timer > div {
-            flex: 1;
-            min-width: 70px !important;
-            margin: 5px;
-        }
-        
-        .popup-buttons {
-            flex-direction: column !important;
-            gap: 10px !important;
-        }
+    .music-btn.playing {
+        background: var(--accent-orange) !important;
+        color: white !important;
     }
 `;
-document.head.appendChild(popupStyle);
+document.head.appendChild(style);
 
 // Error boundary global
 window.addEventListener('error', function(e) {
@@ -959,5 +666,121 @@ window.addEventListener('unhandledrejection', function(e) {
     console.log('⚠️ Promise rejection ditangkap:', e.reason);
     e.preventDefault();
 });
+// =====================================================
+// POPUP PENGUMUMAN - TAMBAHAN BARU (TAMBAHKAN DI AKHIR FILE)
+// =====================================================
 
-console.log('✅ JavaScript XTM1 siap dengan popup yang bisa diclick!');
+// Announcement Popup Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const announcementPopup = document.getElementById('announcement-popup');
+    const closeBtn = document.querySelector('.announcement-close');
+    const closePermanentlyBtn = document.getElementById('close-permanently');
+    const tryBotBtn = document.getElementById('try-bot-btn');
+    
+    // Jika elemen popup tidak ditemukan, jangan jalankan kode ini
+    if (!announcementPopup) {
+        console.log('❌ Popup pengumuman tidak ditemukan, fungsi dinonaktifkan');
+        return;
+    }
+    
+    // Cek jika user sudah pernah menutup popup
+    const hasClosedAnnouncement = localStorage.getItem('announcementClosed');
+    const hasClosedSession = sessionStorage.getItem('announcementClosed');
+    
+    // Tampilkan popup setelah delay (kecuali sudah pernah ditutup)
+    setTimeout(() => {
+        if (!hasClosedAnnouncement && !hasClosedSession) {
+            announcementPopup.classList.add('active');
+            // Tambahkan class untuk animasi masuk
+            document.body.style.overflow = 'hidden'; // Mencegah scroll
+            console.log('📢 Popup pengumuman ditampilkan');
+        }
+    }, 2000); // Delay 2 detik
+    
+    // Fungsi untuk menutup popup
+    function closeAnnouncement() {
+        announcementPopup.classList.remove('active');
+        document.body.style.overflow = ''; // Kembalikan scroll
+        console.log('📢 Popup ditutup');
+    }
+    
+    // Event listener untuk tombol close
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            closeAnnouncement();
+            // Simpan di sessionStorage agar tidak muncul lagi di sesi ini
+            sessionStorage.setItem('announcementClosed', 'true');
+        });
+    }
+    
+    // Tombol "Nanti Saja" - tutup sementara
+    if (closePermanentlyBtn) {
+        closePermanentlyBtn.addEventListener('click', function() {
+            closeAnnouncement();
+            // Simpan di sessionStorage agar tidak muncul lagi di sesi ini
+            sessionStorage.setItem('announcementClosed', 'true');
+        });
+    }
+    
+    // Tombol "Coba Chatbot"
+    if (tryBotBtn) {
+        tryBotBtn.addEventListener('click', function() {
+            closeAnnouncement();
+            // Simpan di localStorage agar tidak muncul lagi selamanya
+            localStorage.setItem('announcementClosed', 'true');
+            
+            // Arahkan ke chatbot atau buka modal chatbot
+            alert('🚀 Fitur chatbot sedang dalam pengembangan! Akan segera hadir...');
+            
+            // Atau untuk navigasi ke section tertentu:
+            // window.location.hash = '#chatbot-section';
+            
+            // Atau untuk membuka modal chatbot:
+            // openChatbotModal();
+        });
+    }
+    
+    // Tutup popup ketika klik di luar area konten
+    announcementPopup.addEventListener('click', function(e) {
+        if (e.target === announcementPopup) {
+            closeAnnouncement();
+            sessionStorage.setItem('announcementClosed', 'true');
+        }
+    });
+    
+    // Tutup dengan tombol ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && announcementPopup.classList.contains('active')) {
+            closeAnnouncement();
+            sessionStorage.setItem('announcementClosed', 'true');
+        }
+    });
+    
+    // Tambahkan efek ketik untuk judul (opsional)
+    const announcementTitle = document.querySelector('.announcement-title');
+    if (announcementTitle) {
+        const originalText = announcementTitle.textContent;
+        announcementTitle.textContent = '';
+        
+        let i = 0;
+        function typeWriter() {
+            if (i < originalText.length && !hasClosedAnnouncement && !hasClosedSession) {
+                announcementTitle.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        
+        // Mulai efek ketik saat popup muncul
+        setTimeout(typeWriter, 2300);
+    }
+});
+
+// Fungsi untuk reset pengaturan (untuk testing) - opsional
+function resetAnnouncement() {
+    localStorage.removeItem('announcementClosed');
+    sessionStorage.removeItem('announcementClosed');
+    location.reload();
+}
+
+console.log('✅ Fungsi popup pengumuman berhasil ditambahkan');
