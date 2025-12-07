@@ -729,7 +729,6 @@ document.addEventListener('DOMContentLoaded', function() {
             closeAnnouncement();
             
             // ⚡ SIMPAN BAHWA USER SUDAH COBA CHATBOT
-            localStorage.setItem('hasTriedChatbot', 'true');
             console.log('✅ User klik "Coba Chatbot", tidak akan muncul lagi');
             
             // Buka chatbot di tab baru
