@@ -3,15 +3,15 @@ const membersData = [
     { id: 1, name: "Drs. Nurhayat Arif, MK", role: "Wali Kelas", avatar: "NA" },
     { id: 2, name: "Lutfi", role: "Ketua Kelas", avatar: "LF" },
     { id: 3, name: "Cika", role: "Wakil Ketua", avatar: "CK" },
-    { id: 4, name: "Khanza", role: "Bendahara 1", avatar: "MT" },
-    { id: 5, name: "Mutiya", role: "Bendahara 2", avatar: "FT" },
-    { id: 6, name: "Putri", role: "S.Olahraga", avatar: "RZ" },
-    { id: 7, name: "Tia", role: "Sekretaris 1", avatar: "AR" },
-    { id: 8, name: "Fitra", role: "Sekretaris 2", avatar: "SN" },
-    { id: 9, name: "Andika", role: "S.Peralatan", avatar: "BS" },
-    { id: 10, name: "Farel", role: "S.Kerohanian", avatar: "DL" },
-    { id: 11, name: "Redzuan", role: "S.Keamanan", avatar: "FP" },
-    { id: 12, name: "Nursyam", role: "Web Developer", avatar: "MS" }
+    { id: 4, name: "Khanza", role: "Bendahara 1", avatar: "KZ" },
+    { id: 5, name: "Mutiya", role: "Bendahara 2", avatar: "MT" },
+    { id: 6, name: "Putri", role: "S.Olahraga", avatar: "PI" },
+    { id: 7, name: "Tia", role: "Sekretaris 1", avatar: "TA" },
+    { id: 8, name: "Fitra", role: "Sekretaris 2", avatar: "FT" },
+    { id: 9, name: "Andika", role: "S.Peralatan", avatar: "AK" },
+    { id: 10, name: "Farel", role: "S.Kerohanian", avatar: "FR" },
+    { id: 11, name: "Redzuan", role: "S.Keamanan", avatar: "RZ" },
+    { id: 12, name: "Nursyam", role: "Web Developer", avatar: "NS" }
 ];
 
 // Data dummy untuk feed kelas
@@ -20,18 +20,18 @@ const feedData = [
         id: 1, 
         author: "Lutfi", 
         avatar: "LF", 
-        date: "2 jam yang lalu", 
-        content: "Hari ini kita berhasil menyelesaikan proyek robot pemilah barang! Kerja bagus semuanya! 🎉", 
+        date: "1 hari yang lalu", 
+        content: "Hari ini Telah Launching AI Beta Kelas! 🎉", 
         image: "assets/images/project-success.jpg",
-        likes: 15,
+        likes: 20,
         comments: 5
     },
     { 
         id: 2, 
         author: "Cika", 
         avatar: "CK", 
-        date: "1 hari yang lalu", 
-        content: "Jangan lupa besok ada presentasi proyek di lab mekatronika. Siapkan materi dan prototype kalian!", 
+        date: "4 jam yang lalu", 
+        content: "Bersiap-siap untuk event Clasmeeting Akhir Tahun Ini!", 
         likes: 8,
         comments: 3
     },
@@ -40,9 +40,9 @@ const feedData = [
         author: "Fitra", 
         avatar: "FT", 
         date: "2 hari yang lalu", 
-        content: "Foto dokumentasi kegiatan praktikum kemarin. Semua terlihat serius dan fokus! 👨‍🔧", 
+        content: "Semangat untuk event Clasmeeting Akhir Tahun Ini! 🎉 ", 
         image: "assets/images/praktikum.jpg",
-        likes: 22,
+        likes: 16,
         comments: 7
     }
 ];
