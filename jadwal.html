@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jadwal Pelajaran XTM1</title>
     <link rel="stylesheet" href="assets/css/jadwal.css">
-    <link rel="icon" type="image/png" href="assets/img/favicon-96x96.png" sizes="96x96" />
+     <link rel="icon" type="image/png" href="assets/img/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
     <link rel="shortcut icon" href="assets/img/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
@@ -105,11 +105,11 @@
                 </div>
                 <div class="schedule-stats">
                     <div class="stat">
-                        <div class="stat-number" id="totalSubjects">0</div>
+                        <div class="stat-number" id="totalSubjects">16</div>
                         <div class="stat-label">Mata Pelajaran</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-number" id="totalHours">0</div>
+                        <div class="stat-number" id="totalHours">16</div>
                         <div class="stat-label">Jam Pelajaran</div>
                     </div>
                 </div>
@@ -119,11 +119,11 @@
             <div class="schedule-navigation fade-in">
                 <div class="day-filters">
                     <button class="day-filter active" data-day="all">Semua Hari</button>
-                    <button class="day-filter" data-day="senin">Senin</button>
-                    <button class="day-filter" data-day="selasa">Selasa</button>
-                    <button class="day-filter" data-day="rabu">Rabu</button>
-                    <button class="day-filter" data-day="kamis">Kamis</button>
-                    <button class="day-filter" data-day="jumat">Jumat</button>
+                    <button class="day-filter" data-day="monday">Senin</button>
+                    <button class="day-filter" data-day="tuesday">Selasa</button>
+                    <button class="day-filter" data-day="wednesday">Rabu</button>
+                    <button class="day-filter" data-day="thursday">Kamis</button>
+                    <button class="day-filter" data-day="friday">Jumat</button>
                 </div>
                 <div class="view-options">
                     <button class="view-option active" data-view="grid">
@@ -135,11 +135,339 @@
                 </div>
             </div>
 
-            <!-- Schedule Container -->
-            <div class="schedule-container" id="scheduleContainer">
-                <div class="loading">
-                    <i class="fas fa-spinner fa-spin"></i>
-                    <p>Memuat jadwal dari database...</p>
+            <!-- Schedule Grid -->
+            <div class="schedule-container">
+                <!-- Senin -->
+                <div class="day-schedule active" id="monday">
+                    <div class="day-header">
+                        <h3>Senin</h3>
+                        <span class="lesson-count">4 Pelajaran</span>
+                    </div>
+                    <div class="lessons-grid">
+                        <div class="lesson-card">
+                            <div class="lesson-time">
+                                <span class="time-start">07:10</span>
+                                <span class="time-end">08:30</span>
+                            </div>
+                            <div class="lesson-content">
+                                <h4 class="lesson-name">Pjok</h4>
+                                <p class="lesson-teacher">-</p>
+                                <div class="lesson-meta">
+                                    <span class="lesson-room"><i class="fas fa-map-marker-alt"></i> Lapangan Texar</span>
+                                    <span class="lesson-duration"><i class="fas fa-clock"></i> 2 Jam</span>
+                                </div>
+                            </div>
+                            <div class="lesson-icon">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                        </div>
+
+                        <div class="lesson-card">
+                            <div class="lesson-time">
+                                <span class="time-start">08:30</span>
+                                <span class="time-end">09:30</span>
+                            </div>
+                            <div class="lesson-content">
+                                <h4 class="lesson-name">Bahasa Inggris</h4>
+                                <p class="lesson-teacher">-</p>
+                                <div class="lesson-meta">
+                                    <span class="lesson-room"><i class="fas fa-map-marker-alt"></i> Rd 2.2</span>
+                                    <span class="lesson-duration"><i class="fas fa-clock"></i> 2 Jam</span>
+                                </div>
+                            </div>
+                            <div class="lesson-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                        </div>
+
+                        <div class="lesson-card">
+                            <div class="lesson-time">
+                                <span class="time-start">10:30</span>
+                                <span class="time-end">11:49</span>
+                            </div>
+                            <div class="lesson-content">
+                                <h4 class="lesson-name">Ilmu Pengetahuan Alam Dan Sosial</h4>
+                                <p class="lesson-teacher">-</p>
+                                <div class="lesson-meta">
+                                    <span class="lesson-room"><i class="fas fa-map-marker-alt"></i> Rd 2.2</span>
+                                    <span class="lesson-duration"><i class="fas fa-clock"></i> 2 Jam</span>
+                                </div>
+                            </div>
+                            <div class="lesson-icon">
+                                <i class="fas fa-drafting-compass"></i>
+                            </div>
+                        </div>
+
+                        <div class="lesson-card">
+                            <div class="lesson-time">
+                                <span class="time-start">12:58</span>
+                                <span class="time-end">14:00</span>
+                            </div>
+                            <div class="lesson-content">
+                                <h4 class="lesson-name">Bahasa Indonesia</h4>
+                                <p class="lesson-teacher">-</p>
+                                <div class="lesson-meta">
+                                    <span class="lesson-room"><i class="fas fa-map-marker-alt"></i> Rd 2.2</span>
+                                    <span class="lesson-duration"><i class="fas fa-clock"></i> 2 Jam</span>
+                                </div>
+                            </div>
+                            <div class="lesson-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Selasa -->
+                <div class="day-schedule" id="tuesday">
+                    <div class="day-header">
+                        <h3>Selasa</h3>
+                        <span class="lesson-count">3 Pelajaran</span>
+                    </div>
+                    <div class="lessons-grid">
+                        <div class="lesson-card">
+                            <div class="lesson-time">
+                                <span class="time-start">07:00</span>
+                                <span class="time-end">09:30</span>
+                            </div>
+                            <div class="lesson-content">
+                                <h4 class="lesson-name">Ilmu Pengetahuan Alam Dan Sosial</h4>
+                                <p class="lesson-teacher">-</p>
+                                <div class="lesson-meta">
+                                    <span class="lesson-room"><i class="fas fa-map-marker-alt"></i> Rb 2.1</span>
+                                    <span class="lesson-duration"><i class="fas fa-clock"></i> 3 Jam</span>
+                                </div>
+                            </div>
+                            <div class="lesson-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                        </div>
+
+                        <div class="lesson-card">
+                            <div class="lesson-time">
+                                <span class="time-start">10:30</span>
+                                <span class="time-end">11:48</span>
+                            </div>
+                            <div class="lesson-content">
+                                <h4 class="lesson-name">Bahasa Inggris</h4>
+                                <p class="lesson-teacher">-</p>
+                                <div class="lesson-meta">
+                                    <span class="lesson-room"><i class="fas fa-map-marker-alt"></i> Ra 1.2</span>
+                                    <span class="lesson-duration"><i class="fas fa-clock"></i> 2 Jam</span>
+                                </div>
+                            </div>
+                            <div class="lesson-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                        </div>
+
+                        <div class="lesson-card">
+                            <div class="lesson-time">
+                                <span class="time-start">12:58</span>
+                                <span class="time-end">14:00</span>
+                            </div>
+                            <div class="lesson-content">
+                                <h4 class="lesson-name">Matematika</h4>
+                                <p class="lesson-teacher">-</p>
+                                <div class="lesson-meta">
+                                    <span class="lesson-room"><i class="fas fa-map-marker-alt"></i> Rc 2.2</span>
+                                    <span class="lesson-duration"><i class="fas fa-clock"></i> 2 Jam</span>
+                                </div>
+                            </div>
+                            <div class="lesson-icon">
+                                <i class="fas fa-landmark"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rabu -->
+                <div class="day-schedule" id="wednesday">
+                    <div class="day-header">
+                        <h3>Rabu</h3>
+                        <span class="lesson-count">3 Pelajaran</span>
+                    </div>
+                    <div class="lessons-grid">
+                        <div class="lesson-card">
+                            <div class="lesson-time">
+                                <span class="time-start">07:00</span>
+                                <span class="time-end">09:30</span>
+                            </div>
+                            <div class="lesson-content">
+                                <h4 class="lesson-name">Agama</h4>
+                                <p class="lesson-teacher">-</p>
+                                <div class="lesson-meta">
+                                    <span class="lesson-room"><i class="fas fa-map-marker-alt"></i> Ra 3.1</span>
+                                    <span class="lesson-duration"><i class="fas fa-clock"></i> 3 Jam</span>
+                                </div>
+                            </div>
+                            <div class="lesson-icon">
+                                <i class="fas fa-wind"></i>
+                            </div>
+                        </div>
+
+                        <div class="lesson-card">
+                            <div class="lesson-time">
+                                <span class="time-start">10:30</span>
+                                <span class="time-end">11:48</span>
+                            </div>
+                            <div class="lesson-content">
+                                <h4 class="lesson-name">Sejarag</h4>
+                                <p class="lesson-teacher">-</p>
+                                <div class="lesson-meta">
+                                    <span class="lesson-room"><i class="fas fa-map-marker-alt"></i> Rb 2.2</span>
+                                    <span class="lesson-duration"><i class="fas fa-clock"></i> 2 Jam</span>
+                                </div>
+                            </div>
+                            <div class="lesson-icon">
+                                <i class="fas fa-atom"></i>
+                            </div>
+                        </div>
+
+                        <div class="lesson-card">
+                            <div class="lesson-time">
+                                <span class="time-start">12:48</span>
+                                <span class="time-end">14:00</span>
+                            </div>
+                            <div class="lesson-content">
+                                <h4 class="lesson-name">Mekatronika</h4>
+                                <p class="lesson-teacher">-</p>
+                                <div class="lesson-meta">
+                                    <span class="lesson-room"><i class="fas fa-map-marker-alt"></i> Rc 1.4</span>
+                                    <span class="lesson-duration"><i class="fas fa-clock"></i> 2 Jam</span>
+                                </div>
+                            </div>
+                            <div class="lesson-icon">
+                                <i class="fas fa-pray"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kamis -->
+                <div class="day-schedule" id="thursday">
+                    <div class="day-header">
+                        <h3>Kamis</h3>
+                        <span class="lesson-count">4 Pelajaran</span>
+                    </div>
+                    <div class="lessons-grid">
+                        <div class="lesson-card">
+                            <div class="lesson-time">
+                                <span class="time-start">07:00</span>
+                                <span class="time-end">08:00</span>
+                            </div>
+                            <div class="lesson-content">
+                                <h4 class="lesson-name">Bahasa Sunda</h4>
+                                <p class="lesson-teacher">-</p>
+                                <div class="lesson-meta">
+                                    <span class="lesson-room"><i class="fas fa-map-marker-alt"></i> Ra 2.1</span>
+                                    <span class="lesson-duration"><i class="fas fa-clock"></i> 2 Jam</span>
+                                </div>
+                            </div>
+                            <div class="lesson-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                        </div>
+
+                        <div class="lesson-card">
+                            <div class="lesson-time">
+                                <span class="time-start">08:00</span>
+                                <span class="time-end">10:30</span>
+                            </div>
+                            <div class="lesson-content">
+                                <h4 class="lesson-name">Pendidikan Pancasila</h4>
+                                <p class="lesson-teacher">-</p>
+                                <div class="lesson-meta">
+                                    <span class="lesson-room"><i class="fas fa-map-marker-alt"></i> Ra 2.1</span>
+                                    <span class="lesson-duration"><i class="fas fa-clock"></i> 2 Jam</span>
+                                </div>
+                            </div>
+                            <div class="lesson-icon">
+                                <i class="fas fa-satellite-dish"></i>
+                            </div>
+                        </div>
+
+                        <div class="lesson-card">
+                            <div class="lesson-time">
+                                <span class="time-start">10:30</span>
+                                <span class="time-end">12:48</span>
+                            </div>
+                            <div class="lesson-content">
+                                <h4 class="lesson-name">Seni Budaya</h4>
+                                <p class="lesson-teacher">-</p>
+                                <div class="lesson-meta">
+                                    <span class="lesson-room"><i class="fas fa-map-marker-alt"></i> Gazebo</span>
+                                    <span class="lesson-duration"><i class="fas fa-clock"></i> 2 Jam</span>
+                                </div>
+                            </div>
+                            <div class="lesson-icon">
+                                <i class="fas fa-running"></i>
+                            </div>
+                        </div>
+
+                        <div class="lesson-card">
+                            <div class="lesson-time">
+                                <span class="time-start">12:48</span>
+                                <span class="time-end">13:00</span>
+                            </div>
+                            <div class="lesson-content">
+                                <h4 class="lesson-name">Mekatronika</h4>
+                                <p class="lesson-teacher">-</p>
+                                <div class="lesson-meta">
+                                    <span class="lesson-room"><i class="fas fa-map-marker-alt"></i> Rc 1.3</span>
+                                    <span class="lesson-duration"><i class="fas fa-clock"></i> 2 Jam</span>
+                                </div>
+                            </div>
+                            <div class="lesson-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jumat -->
+                <div class="day-schedule" id="friday">
+                    <div class="day-header">
+                        <h3>Jumat</h3>
+                        <span class="lesson-count">2 Pelajaran</span>
+                    </div>
+                    <div class="lessons-grid">
+                        <div class="lesson-card">
+                            <div class="lesson-time">
+                                <span class="time-start">07:00</span>
+                                <span class="time-end">10:30</span>
+                            </div>
+                            <div class="lesson-content">
+                                <h4 class="lesson-name">Mekatronika</h4>
+                                <p class="lesson-teacher">-</p>
+                                <div class="lesson-meta">
+                                    <span class="lesson-room"><i class="fas fa-map-marker-alt"></i> Rc 1.2</span>
+                                    <span class="lesson-duration"><i class="fas fa-clock"></i> 3 Jam</span>
+                                </div>
+                            </div>
+                            <div class="lesson-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                        </div>
+
+                        <div class="lesson-card">
+                            <div class="lesson-time">
+                                <span class="time-start">11:00</span>
+                                <span class="time-end">13:59</span>
+                            </div>
+                            <div class="lesson-content">
+                                <h4 class="lesson-name">Informatika</h4>
+                                <p class="lesson-teacher">-</p>
+                                <div class="lesson-meta">
+                                    <span class="lesson-room"><i class="fas fa-map-marker-alt"></i> Lab Komputer</span>
+                                    <span class="lesson-duration"><i class="fas fa-clock"></i> 3 Jam</span>
+                                </div>
+                            </div>
+                            <div class="lesson-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -152,7 +480,7 @@
                             <i class="fas fa-book-open"></i>
                         </div>
                         <div class="summary-content">
-                            <h4 id="totalSubjectsSummary">0</h4>
+                            <h4>16</h4>
                             <p>Mata Pelajaran</p>
                         </div>
                     </div>
@@ -161,7 +489,7 @@
                             <i class="fas fa-clock"></i>
                         </div>
                         <div class="summary-content">
-                            <h4 id="totalHoursSummary">0</h4>
+                            <h4>16</h4>
                             <p>Jam Pelajaran</p>
                         </div>
                     </div>
@@ -170,7 +498,7 @@
                             <i class="fas fa-user-graduate"></i>
                         </div>
                         <div class="summary-content">
-                            <h4 id="totalTeachers">0</h4>
+                            <h4>12</h4>
                             <p>Guru Pengajar</p>
                         </div>
                     </div>
@@ -179,7 +507,7 @@
                             <i class="fas fa-flask"></i>
                         </div>
                         <div class="summary-content">
-                            <h4 id="totalLabs">0</h4>
+                            <h4>6</h4>
                             <p>Laboratorium</p>
                         </div>
                     </div>
@@ -199,10 +527,10 @@
                 <div class="footer-links">
                     <h3>Tautan Cepat</h3>
                     <ul>
-                        <li><a href="index.html">Beranda</a></li>
-                        <li><a href="anggota.html">Anggota</a></li>
-                        <li><a href="jadwal.html">Jadwal</a></li>
-                        <li><a href="dokxtm1.html">Dokumentasi</a></li>
+                        <li><a href="index">Beranda</a></li>
+                        <li><a href="anggota">Anggota</a></li>
+                        <li><a href="jadwal">Jadwal</a></li>
+                        <li><a href="dokxtm1">Dokumentasi</a></li>
                     </ul>
                 </div>
                 <div class="footer-social">
@@ -220,182 +548,6 @@
         </div>
     </footer>
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-
     <script src="assets/js/jadwal.js"></script>
-    
-    <!-- Firebase Integration -->
-    <script>
-        // Firebase Configuration - GANTI INI DENGAN CONFIG-MU!
-        const firebaseConfig = {
-            apiKey: "AIzaSyDlv1vOjzQyUM7yY89Cb40o79PIT6AiuYc",
-            authDomain: "xtm1-79048.firebaseapp.com",
-            databaseURL: "https://xtm1-79048-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "xtm1-79048",
-            storageBucket: "xtm1-79048.firebasestorage.app",
-            messagingSenderId: "36588922230",
-            appId: "1:36588922230:web:28ed2d2dc9f58ec9f6c657"
-        };
-
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-
-        // Load jadwal dari Firebase
-        function loadJadwalFromFirebase() {
-            const db = firebase.database();
-            const container = document.getElementById('scheduleContainer');
-            
-            db.ref('jadwal').on('value', (snapshot) => {
-                const jadwal = snapshot.val();
-                
-                if (!jadwal) {
-                    container.innerHTML = `
-                        <div class="empty-state">
-                            <i class="fas fa-calendar-times"></i>
-                            <h3>Jadwal Belum Tersedia</h3>
-                            <p>Admin belum mengisi jadwal. Silakan hubungi admin.</p>
-                        </div>
-                    `;
-                    return;
-                }
-
-                displayJadwal(jadwal);
-                updateStatistics(jadwal);
-                
-            }, (error) => {
-                console.error('Error:', error);
-                container.innerHTML = `
-                    <div class="error-state">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <h3>Gagal Memuat Jadwal</h3>
-                        <p>Error: ${error.message}</p>
-                        <button onclick="loadJadwalFromFirebase()" class="btn-retry">
-                            <i class="fas fa-redo"></i> Coba Lagi
-                        </button>
-                    </div>
-                `;
-            });
-        }
-
-        function displayJadwal(jadwal) {
-            const container = document.getElementById('scheduleContainer');
-            let html = '';
-            
-            const days = ['senin', 'selasa', 'rabu', 'kamis', 'jumat'];
-            const dayNames = {
-                'senin': 'Senin',
-                'selasa': 'Selasa', 
-                'rabu': 'Rabu',
-                'kamis': 'Kamis',
-                'jumat': 'Jumat'
-            };
-
-            days.forEach(day => {
-                if (jadwal[day] && jadwal[day].length > 0) {
-                    html += `
-                        <div class="day-schedule active" id="${day}">
-                            <div class="day-header">
-                                <h3>${dayNames[day]}</h3>
-                                <span class="lesson-count">${jadwal[day].length} Pelajaran</span>
-                            </div>
-                            <div class="lessons-grid">
-                                ${jadwal[day].map(lesson => `
-                                    <div class="lesson-card">
-                                        <div class="lesson-time">
-                                            <span class="time-start">${lesson.waktu || ''}</span>
-                                        </div>
-                                        <div class="lesson-content">
-                                            <h4 class="lesson-name">${lesson.matkul || ''}</h4>
-                                            <p class="lesson-teacher">${lesson.dosen || '-'}</p>
-                                            <div class="lesson-meta">
-                                                <span class="lesson-room">
-                                                    <i class="fas fa-map-marker-alt"></i> ${lesson.ruang || ''}
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="lesson-icon">
-                                            <i class="fas fa-book"></i>
-                                        </div>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                    `;
-                }
-            });
-
-            container.innerHTML = html || `
-                <div class="empty-state">
-                    <i class="fas fa-calendar-times"></i>
-                    <h3>Jadwal Kosong</h3>
-                    <p>Tidak ada jadwal untuk ditampilkan</p>
-                </div>
-            `;
-
-            setupDayFilters();
-        }
-
-        function updateStatistics(jadwal) {
-            let totalSubjects = 0;
-            let uniqueTeachers = new Set();
-            let uniqueRooms = new Set();
-
-            Object.values(jadwal).forEach(dayLessons => {
-                if (dayLessons) {
-                    totalSubjects += dayLessons.length;
-                    dayLessons.forEach(lesson => {
-                        if (lesson.dosen) uniqueTeachers.add(lesson.dosen);
-                        if (lesson.ruang && lesson.ruang.toLowerCase().includes('lab')) {
-                            uniqueRooms.add(lesson.ruang);
-                        }
-                    });
-                }
-            });
-
-            document.getElementById('totalSubjects').textContent = totalSubjects;
-            document.getElementById('totalHours').textContent = totalSubjects;
-            document.getElementById('totalSubjectsSummary').textContent = totalSubjects;
-            document.getElementById('totalHoursSummary').textContent = totalSubjects;
-            document.getElementById('totalTeachers').textContent = uniqueTeachers.size;
-            document.getElementById('totalLabs').textContent = uniqueRooms.size;
-        }
-
-        function setupDayFilters() {
-            document.querySelectorAll('.day-filter').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const day = e.target.dataset.day;
-                    
-                    document.querySelectorAll('.day-filter').forEach(btn => {
-                        btn.classList.remove('active');
-                    });
-                    e.target.classList.add('active');
-                    
-                    const allSchedules = document.querySelectorAll('.day-schedule');
-                    
-                    if (day === 'all') {
-                        allSchedules.forEach(schedule => schedule.classList.add('active'));
-                    } else {
-                        allSchedules.forEach(schedule => {
-                            schedule.classList.remove('active');
-                            if (schedule.id === day) {
-                                schedule.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            });
-        }
-
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            loadJadwalFromFirebase();
-            
-            const now = new Date();
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            document.getElementById('currentDate').textContent = now.toLocaleDateString('id-ID', options);
-        });
-    </script>
 </body>
 </html>
