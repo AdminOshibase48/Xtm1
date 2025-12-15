@@ -1,129 +1,217 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="dark-mode">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XTM 1 - Maintenance Announcement</title>
+    <title>XTM 1 - Sedang Dalam Maintenance</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/mt.css">
 </head>
 <body>
-    <div class="maintenance-announcement">
+    <!-- Background Elements -->
+    <div class="bg-elements">
+        <div class="bg-circle circle-1"></div>
+        <div class="bg-circle circle-2"></div>
+        <div class="bg-circle circle-3"></div>
+        <div class="bg-circle circle-4"></div>
+        <div class="stars"></div>
+        <div class="stars-2"></div>
+    </div>
+
+    <!-- Maintenance Announcement -->
+    <div class="maintenance-announcement slide-up">
         <!-- Header -->
-        <div class="announcement-header">
-            <div class="logo-section">
+        <div class="maintenance-header">
+            <div class="header-logo">
                 <div class="logo-circle">
                     <span class="logo-text">XTM</span>
                 </div>
                 <div class="header-title">
-                    <h1>XTM 1</h1>
-                    <p class="subtitle">Maintenance Announcement</p>
+                    <h1><span class="logo-highlight">XTM</span> 1</h1>
+                    <p class="subtitle">Dunia Teknologi & Kreativitas Kami</p>
                 </div>
             </div>
-            <div class="status-badge">
-                <span class="status-dot"></span>
-                MAINTENANCE ACTIVE
+            <div class="maintenance-status">
+                <div class="status-indicator">
+                    <span class="status-dot pulse-important"></span>
+                    <span class="status-text">MAINTENANCE ACTIVE</span>
+                </div>
             </div>
         </div>
 
         <!-- Content -->
-        <div class="announcement-content">
-            <div class="icon-section">
-                <div class="maintenance-icon">
-                    <i class="fas fa-tools"></i>
-                </div>
-                <h2>Sistem Sedang Dalam Pemeliharaan</h2>
-                <p class="announcement-message">
-                    Website XTM 1 sedang dalam proses pemeliharaan untuk peningkatan performa dan keamanan sistem.
-                </p>
+        <div class="maintenance-content">
+            <div class="maintenance-icon">
+                <i class="fas fa-tools"></i>
+            </div>
+            
+            <h2 class="maintenance-title">Sistem Sedang Dalam Pemeliharaan</h2>
+            
+            <div class="maintenance-message">
+                <p>Website <strong>XTM 1 - SMK Texar Karawang</strong> sedang dalam proses pemeliharaan untuk meningkatkan performa dan keamanan sistem.</p>
+                <p>Kami sedang melakukan update dan optimasi agar pengalaman Anda lebih baik.</p>
             </div>
 
-            <!-- Maintenance Info -->
-            <div class="info-grid">
-                <div class="info-card">
-                    <div class="info-icon">
+            <!-- Maintenance Info Cards -->
+            <div class="maintenance-info-grid">
+                <div class="info-card hover-lift">
+                    <div class="card-icon">
                         <i class="fas fa-calendar-alt"></i>
                     </div>
                     <h3>Waktu Maintenance</h3>
-                    <p>15 Desember 2025</p>
-                    <span class="time-range">10:00 - 00:00 WIB</span>
+                    <p class="card-value">15 Des 2024</p>
+                    <p class="card-detail">10:00 - 18:00 WIB</p>
                 </div>
 
-                <div class="info-card">
-                    <div class="info-icon">
+                <div class="info-card hover-lift">
+                    <div class="card-icon">
                         <i class="fas fa-clock"></i>
                     </div>
                     <h3>Estimasi Selesai</h3>
-                    <div class="countdown" id="countdown">06:00:00</div>
-                    <span class="countdown-label">Jam - Menit - Detik</span>
+                    <div class="countdown" id="countdown">08:00:00</div>
+                    <p class="card-detail">Jam:Menit:Detik</p>
                 </div>
 
-                <div class="info-card">
-                    <div class="info-icon">
-                        <i class="fas fa-cogs"></i>
+                <div class="info-card hover-lift">
+                    <div class="card-icon">
+                        <i class="fas fa-tasks"></i>
                     </div>
-                    <h3>Progress</h3>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 65%;"></div>
+                    <h3>Progress Pengerjaan</h3>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 50%"></div>
+                        </div>
+                        <span class="progress-text">50% Selesai</span>
                     </div>
-                    <span class="progress-text">50% Complete</span>
+                </div>
+
+                <div class="info-card hover-lift">
+                    <div class="card-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Status Sistem</h3>
+                    <div class="system-status">
+                        <div class="status-item">
+                            <span class="status-dot success"></span>
+                            <span>Database: Stabil</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-dot warning"></span>
+                            <span>Server: Dalam Perbaikan</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-dot success"></span>
+                            <span>Keamanan: Aktif</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- What's Being Done -->
+            <!-- Update Progress -->
             <div class="updates-section">
-                <h3><i class="fas fa-tasks"></i> Yang Sedang Dikerjakan:</h3>
+                <h3><i class="fas fa-sync-alt"></i> Progress Update</h3>
                 <div class="updates-list">
                     <div class="update-item">
                         <i class="fas fa-check-circle completed"></i>
-                        <span>Update database sistem mekatronika</span>
+                        <span>Backup data lengkap selesai</span>
+                        <span class="update-time">✓ 1 jam lalu</span>
                     </div>
                     <div class="update-item">
                         <i class="fas fa-sync-alt in-progress"></i>
-                        <span>Optimasi server dan jaringan</span>
+                        <span>Update sistem mekatronika (65%)</span>
+                        <span class="update-time">🔄 Sedang berjalan</span>
                     </div>
                     <div class="update-item">
                         <i class="fas fa-clock pending"></i>
-                        <span>Peningkatan keamanan sistem</span>
+                        <span>Optimasi database</span>
+                        <span class="update-time">⏳ Menunggu</span>
                     </div>
                     <div class="update-item">
                         <i class="fas fa-clock pending"></i>
                         <span>Update konten XTM1</span>
+                        <span class="update-time">⏳ Menunggu</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Contact Info -->
+            <!-- Contact & Info -->
             <div class="contact-section">
-                <h3><i class="fas fa-info-circle"></i> Informasi Kontak</h3>
-                <p>Untuk pertanyaan darurat, hubungi:</p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>xtm12k25@gmail.com</span>
+                <div class="contact-card">
+                    <h3><i class="fas fa-info-circle"></i> Informasi Kontak</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email:</strong>
+                                <p>xtm12k25@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <strong>WhatsApp:</strong>
+                                <p>+62 895-4015-53089</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-school"></i>
+                            <div>
+                                <strong>Lokasi:</strong>
+                                <p>SMK Texar Karawang</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>+62 895-4015-53089</span>
-                    </div>
+                </div>
+
+                <div class="admin-card">
+                    <h3><i class="fas fa-user-shield"></i> Untuk Admin</h3>
+                    <p>Mode maintenance dapat dinonaktifkan melalui:</p>
+                    <ul>
+                        <li>Netlify Dashboard → Environment Variables</li>
+                        <li>Atau hubungi developer utama</li>
+                    </ul>
+                    <button class="glow-btn small" onclick="checkAccess()">
+                        <i class="fas fa-eye"></i> Coba Akses Website
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Footer -->
-        <div class="announcement-footer">
-            <div class="footer-left">
-                <p>&copy; 2025 XTM 1 - SMK Texar Karawang</p>
-                <p class="tagline">Dunia Teknologi & Kreativitas Kami</p>
+        <div class="maintenance-footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h4>XTM 1 - SMK Texar Karawang</h4>
+                    <p class="tagline">Dunia Teknologi & Kreativitas Kami</p>
+                    <p class="copyright">© 2025 Tim Mekatronika. All rights reserved.</p>
+                </div>
+                <div class="footer-right">
+                    <div class="refresh-section">
+                        <p>Status akan diperbarui otomatis setiap 5 menit</p>
+                        <button class="glow-btn secondary small" onclick="refreshStatus()">
+                            <i class="fas fa-redo"></i> Refresh Sekarang
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div class="footer-right">
-                <button class="refresh-btn" onclick="window.location.reload()">
-                    <i class="fas fa-sync-alt"></i> Refresh Status
-                </button>
-                <button class="return-btn" onclick="checkStatus()">
-                    <i class="fas fa-home"></i> Coba Akses Website
-                </button>
+        </div>
+    </div>
+
+    <!-- Robot Maskot -->
+    <div class="robot-container">
+        <div class="robot" onclick="robotSpeak()">
+            <div class="robot-head">
+                <div class="robot-eye left-eye"></div>
+                <div class="robot-eye right-eye"></div>
+                <div class="robot-mouth"></div>
             </div>
+            <div class="robot-body">
+                <div class="robot-panel"></div>
+            </div>
+        </div>
+        <div class="robot-speech-bubble" id="robot-speech">
+            Sistem sedang maintenance! Sabar ya...
         </div>
     </div>
 
