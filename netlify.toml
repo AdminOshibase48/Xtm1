@@ -1,5 +1,26 @@
+[build]
+  publish = "."  # atau folder build Anda (misal: "dist", "public")
+  command = "echo 'Building...'"
+
+# Redirect SEMUA traffic ke maintenance.html jika MAINTENANCE_MODE = true
 [[redirects]]
   from = "/*"
   to = "/maintenance.html"
   status = 200
-  condition = "Maintenance=on"
+  force = true
+  conditions = {Environment = "MAINTENANCE_MODE", Value = "true"}
+
+# Redirect normal ke index.html jika MAINTENANCE_MODE = false
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = true
+  conditions = {Environment = "MAINTENANCE_MODE", Value = "false"}
+
+# Bypass untuk testing (opsional)
+[[redirects]]
+  from = "/bypass-maintenance"
+  to = "/index.html"
+  status = 200
+  force = true
