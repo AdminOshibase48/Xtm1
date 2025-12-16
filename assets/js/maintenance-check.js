@@ -3,7 +3,7 @@
 
 // Cek apakah hari ini tanggal maintenance?
 const maintenanceDates = [
-    '2025-12-16',  // Contoh: hari ini maintenance
+    '2025-12-18',  // Contoh: hari ini maintenance
     '2025-12-18'   // Contoh: tanggal lain
 ];
 
